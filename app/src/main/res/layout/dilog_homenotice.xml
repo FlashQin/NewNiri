@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_whitebac_rec"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="26dp"
+        android:text="Aviso"
+        android:textColor="#ff000000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtfan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="20dp"
+        android:text="Caro membro :\n
+1. Para membros recém-registrados, retire dinheiro após a tarefa ser concluída, por favor escreva um e-mail\n
+Para (info@amazoncash.vip), o conteúdo do e-mail é o número de inscrição do novo membro cadastrado no amazocash.
+2.As retiradas de membros acima do nível 1 serão creditadas na conta em tempo real. \n
+3，Para recarregar e retirar dinheiro, use PIX\n
+
+"
+        android:textColor="@color/black"
+        android:lineSpacingExtra="10dp"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/txttime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="left"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:lineSpacingExtra="5dp"
+        android:autoLink="web"
+        android:text="https://www.bcb.gov.br/en/financialstability/pix_en"
+        android:textColor="@color/black"
+        android:textSize="13sp" />
+
+    <net.qiujuer.genius.ui.widget.Button
+        android:id="@+id/btnok"
+        android:layout_width="112dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="26dp"
+        android:background="@drawable/drawable_team_invite"
+        android:gravity="center"
+
+        android:text="Sim."
+        android:textColor="@color/black" />
+</LinearLayout>

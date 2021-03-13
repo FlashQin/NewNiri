@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Amazon Social</string>
+    <string name="meau_home">Home</string>
+    <string name="meau_task">Task</string>
+    <string name="meau_wallet">Wallet</string>
+    <string name="meau_team">Team</string>
+    <string name="refishtitle">ZXM</string>
+    <string name="refishpulldown">Pull down to refresh ...</string>
+    <string name="zhengzaishuaxin">Refreshing ...</string>
+    <string name="refishloading">Loading ...</string>
+    <string name="refishrelase">Release and refresh immediately</string>
+    <string name="refishok">Refresh completed </string>
+    <string name="refishfail">Refresh failed </string>
+    <string name="refishlasttime">Last update M-d HH:mm</string>
+    <string name="refishconetnt">ZXM</string>
+    <string name="str_get_sms_code">OTP</string>
+    <string name="loadmoretitle">Pull up to load more ...</string>
+    <string name="loadmorecontent">Release and load immediately</string>
+    <string name="loadmoreloading">Loading ....</string>
+    <string name="loadmorehok">Loading completed </string>
+    <string name="loadmorefail">Loading failed </string>
+    <string name="loadmorerelasecontent">Release and load immediately</string>
+    <string name="loadmorenodata">No more data</string>
+
+    <string name="tasktitle">área de trabalho</string>
+    <string name="taskintrduce">Os parceiros de produtos serão processados pela plataforma de caixa e todos os dados serão armazenados na nuvem</string>
+    <string name="taskmenbership">Sistema de membro</string>
+    <string name="taskrevenue">receitas</string>
+    <string name="taskmontante">montante virtual</string>
+    <string name="taskstatus">Estado de conclusão da ordem</string>
+    <string name="taskrecharge">recargar</string>
+    <string name="taskwithdrawal">retirada</string>
+    <string name="tasknewmember">Membro Nível 1</string>
+    <string name="taskrevenueis">Receitas de 0,3% por ordem</string>
+    <string name="taskgetorder">obter ordem</string>
+    <string name="tasklocked">bloqueio</string>
+
+</resources>

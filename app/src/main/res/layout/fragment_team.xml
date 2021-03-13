@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF7B16"
+    android:paddingLeft="14dp"
+    android:paddingRight="14dp">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/linbar"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/bg_top_team"
+                android:orientation="vertical"
+                android:paddingTop="55dp"
+
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="How to be a good leader?"
+                    android:textColor="#ff000000"
+                    android:textSize="21sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/lin2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="110dp"
+                android:background="@drawable/drawable_suggst_one"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <ImageView
+                        android:id="@+id/imgyou"
+                        android:layout_width="310dp"
+                        android:layout_height="281dp"
+                        android:background="@drawable/bg_jzt_top"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="vocês"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_marginTop="38dp"
+                        android:textColor="#ffffffff"
+                        android:textSize="10sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/txtamount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginRight="140dp"
+                        android:text="Amount "
+                        android:textColor="#ff000000"
+                        android:textSize="11sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginRight="4dp"
+                        android:background="@drawable/icon_am"
+                        app:layout_constraintBottom_toBottomOf="@id/txtamount"
+                        app:layout_constraintRight_toLeftOf="@id/txtamount"
+                        app:layout_constraintTop_toTopOf="@id/txtamount" />
+
+                    <TextView
+                        android:id="@+id/txtamountnum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0"
+                        android:textColor="#ff333333"
+                        android:textSize="12sp"
+                        app:layout_constraintRight_toRightOf="@id/txtamount"
+                        app:layout_constraintTop_toBottomOf="@id/txtamount" />
+
+                    <ImageView
+                        android:layout_width="5.5dp"
+                        android:layout_height="4.9dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/icon_xjt"
+                        app:layout_constraintRight_toRightOf="@id/txtamountnum"
+                        app:layout_constraintTop_toBottomOf="@id/txtamountnum" />
+
+
+                    <TextView
+                        android:id="@+id/txtperson"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="140dp"
+                        android:layout_marginTop="25dp"
+                        android:text="Persons "
+                        android:textColor="#ff000000"
+                        android:textSize="11sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginLeft="4dp"
+                        android:background="@drawable/icon_am"
+                        app:layout_constraintBottom_toBottomOf="@id/txtperson"
+                        app:layout_constraintLeft_toRightOf="@id/txtperson"
+                        app:layout_constraintTop_toTopOf="@id/txtperson" />
+
+                    <TextView
+                        android:id="@+id/txtpersonnum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#ff333333"
+                        android:textSize="12sp"
+                        app:layout_constraintLeft_toLeftOf="@id/txtperson"
+                        app:layout_constraintTop_toBottomOf="@id/txtperson" />
+
+                    <ImageView
+                        android:layout_width="5.5dp"
+                        android:layout_height="4.9dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/icon_xjt"
+                        app:layout_constraintLeft_toLeftOf="@id/txtpersonnum"
+                        app:layout_constraintTop_toBottomOf="@id/txtpersonnum" />
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:background="@drawable/bg_jzt"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:layout_editor_absoluteX="18dp" />
+
+                    <TextView
+                        android:id="@+id/txta2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:text="10%\n  A"
+                        android:layout_marginTop="75dp"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/dpteam2"
+                        />
+                    <TextView
+                        android:id="@+id/txta1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0"
+                        app:layout_constraintTop_toTopOf="@id/txta2"
+                        app:layout_constraintBottom_toBottomOf="@id/txta2"
+                        app:layout_constraintRight_toLeftOf="@id/txta2"
+                        android:layout_marginRight="10dp"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/dpteam"
+                        />
+                    <TextView
+                        android:id="@+id/txta3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        app:layout_constraintTop_toTopOf="@id/txta2"
+                        app:layout_constraintBottom_toBottomOf="@id/txta2"
+                        app:layout_constraintLeft_toRightOf="@id/txta2"
+                        android:layout_marginLeft="20dp"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/dpteam"
+                        />
+
+                    <TextView
+                        android:id="@+id/txtb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:text="     8%\n B     B"
+                        android:layout_marginTop="115dp"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/dpteam2"
+                        />
+                    <TextView
+                        android:id="@+id/txtb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0"
+                        app:layout_constraintTop_toTopOf="@id/txtb2"
+                        app:layout_constraintBottom_toBottomOf="@id/txtb2"
+                        app:layout_constraintRight_toLeftOf="@id/txtb2"
+                        android:layout_marginRight="20dp"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/dpteam"
+                        />
+                    <TextView
+                        android:id="@+id/txtb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        app:layout_constraintTop_toTopOf="@id/txtb2"
+                        app:layout_constraintBottom_toBottomOf="@id/txtb2"
+                        app:layout_constraintLeft_toRightOf="@id/txtb2"
+                        android:layout_marginLeft="30dp"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/dpteam"
+                        />
+
+                    <TextView
+                        android:id="@+id/txtc2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:text="       5%\nC    C    C"
+                        android:layout_marginTop="155dp"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/dpteam2"
+                        />
+                    <TextView
+                        android:id="@+id/txtc1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0"
+                        app:layout_constraintTop_toTopOf="@id/txtc2"
+                        app:layout_constraintBottom_toBottomOf="@id/txtc2"
+                        app:layout_constraintRight_toLeftOf="@id/txtc2"
+                        android:layout_marginRight="30dp"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/dpteam"
+                        />
+                    <TextView
+                        android:id="@+id/txtc3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        app:layout_constraintTop_toTopOf="@id/txtc2"
+                        app:layout_constraintBottom_toBottomOf="@id/txtc2"
+                        app:layout_constraintLeft_toRightOf="@id/txtc2"
+                        android:layout_marginLeft="40dp"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/dpteam"
+                        />
+
+                    <TextView
+                        android:id="@+id/txtd2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:text="           3%\nD    D    D    D"
+                        android:layout_marginTop="195dp"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/dpteam2"
+                        />
+                    <TextView
+                        android:id="@+id/txtd1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0"
+                        app:layout_constraintTop_toTopOf="@id/txtd2"
+                        app:layout_constraintBottom_toBottomOf="@id/txtd2"
+                        app:layout_constraintRight_toLeftOf="@id/txtd2"
+                        android:layout_marginRight="40dp"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/dpteam"
+                        />
+                    <TextView
+                        android:id="@+id/txtd3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        app:layout_constraintTop_toTopOf="@id/txtd2"
+                        app:layout_constraintBottom_toBottomOf="@id/txtd2"
+                        app:layout_constraintLeft_toRightOf="@id/txtd2"
+                        android:layout_marginLeft="50dp"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/dpteam"
+                        />
+
+                    <TextView
+                        android:id="@+id/txte2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:text="               1%\nE     E     E     E     E"
+                        android:layout_marginTop="240dp"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/dpteam2"
+                        />
+                    <TextView
+                        android:id="@+id/txte1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0"
+                        app:layout_constraintTop_toTopOf="@id/txte2"
+                        app:layout_constraintBottom_toBottomOf="@id/txte2"
+                        app:layout_constraintRight_toLeftOf="@id/txte2"
+                        android:layout_marginRight="55dp"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/dpteam"
+                        />
+                    <TextView
+                        android:id="@+id/txte3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        app:layout_constraintTop_toTopOf="@id/txte2"
+                        app:layout_constraintBottom_toBottomOf="@id/txte2"
+                        app:layout_constraintLeft_toRightOf="@id/txte2"
+                        android:layout_marginLeft="65dp"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/dpteam"
+                        />
+                    <ImageView
+                        android:layout_width="6dp"
+                        android:layout_height="5.5dp"
+                        android:layout_gravity="center_horizontal"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginBottom="7dp"
+                        android:background="@drawable/icon_sjt" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/dsf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="6dp"
+                    android:text="Commisssion rate"
+                    android:textColor="#ff000000"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="27dp"
+                    android:layout_marginRight="18dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/drawable_team_yuantxt"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:text="You invite A,A invites B, B invites C,C invites D, D invites E"
+                        android:textColor="#ff333333"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="18dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/drawable_team_yuantxt"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:lineSpacingExtra="7dp"
+                        android:text="Box will reward you with 10% of A's order revenue, 8% of B's  order revenue, 5% of C's  order revenue, 3% of D's  order revenue, 1% of E's  order revenue,"
+                        android:textColor="#ff333333"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <net.qiujuer.genius.ui.widget.Button
+                    android:id="@+id/btninvite"
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:layout_marginLeft="34dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="34dp"
+                    android:background="@drawable/drawable_team_invite"
+                    android:gravity="center"
+                    android:text="Invite now"
+                    android:textColor="#FF7B16"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="share links: "
+                        android:textColor="#ff333333"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/txtlink"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#http:www.###.com"
+                        android:textColor="#F54029"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dfsgsd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_czhy"
+                app:layout_constraintTop_toBottomOf="@id/lin2">
+
+                <TextView
+                    android:id="@+id/txt6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="13dp"
+
+                    android:paddingRight="5dp"
+                    android:text="Invite a top-up member to reward R$5.0"
+                    android:textColor="#ff333333"
+                    android:textSize="15sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+
+                    android:text=""
+                    android:textColor="#F54029"
+                    android:textSize="15sp"
+                    app:layout_constraintLeft_toRightOf="@id/txt6"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtjiangnum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:background="@drawable/drawable_teambottom"
+                    android:text="88888888 "
+                    android:textColor="#ff333333"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@+id/txt6"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginBottom="10dp"
+                    android:text=" R$"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#ff333333"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@id/txtjiangnum"
+                    app:layout_constraintTop_toTopOf="@id/txtjiangnum"
+                    app:layout_constraintLeft_toRightOf="@id/txtjiangnum" />
+                <TextView
+                    android:layout_width="match_parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtjiangnum"
+
+                    android:layout_height="wrap_content"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/dfsgsd"
+                android:layout_height="wrap_content"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

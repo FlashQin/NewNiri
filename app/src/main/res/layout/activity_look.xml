@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar_two" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="15dp"
+                android:lineSpacingExtra="10dp"
+                android:text=" Itau\n
+Agencia: 0000\n
+Conta：00000\n
+Digito: 0"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/tutu" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="15dp"
+                android:text="Santander\n
+Agencia: 1690\n
+Tipo da conta: 01(corrente)\n
+Numero da conta: 6435\n
+Digito: 7"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/look2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="15dp"
+                android:text="CaiXia Banco do Brasil\n
+Agencia: 5718\n
+conta: 35.278\n
+Digito: 8"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/look3" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="15dp"
+                android:text="Banco do Brasil\n
+Agencia: 5718\n
+conta: 35.278\n
+Digito: 8"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/look4" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="15dp"
+                android:text="Bradesco\n
+Agencia: 0123\n
+conta: 1234567\n
+Digito: 8"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/look5" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
