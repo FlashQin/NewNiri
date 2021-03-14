@@ -3,6 +3,7 @@ package com.flashqin.niri.fragment;
 import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -20,22 +21,6 @@ import butterknife.OnClick;
 public class HomeFragment extends BaseFragment {
 
 
-    @BindView(R.id.txt1)
-    TextView txt1;
-    @BindView(R.id.view1)
-    View view1;
-    @BindView(R.id.view2)
-    View view2;
-    @BindView(R.id.view3)
-    View view3;
-    @BindView(R.id.view4)
-    View view4;
-    @BindView(R.id.view5)
-    View view5;
-    @BindView(R.id.txt2)
-    TextView txt2;
-    @BindView(R.id.txt3)
-    TextView txt3;
     @BindView(R.id.txttt)
     TextView txttt;
     @BindView(R.id.btnlink)
@@ -57,14 +42,11 @@ public class HomeFragment extends BaseFragment {
     ConstraintLayout frame;
     @BindView(R.id.btn1more)
     Button btn1more;
-    @BindView(R.id.txtt1)
-    TextView txtt1;
-    @BindView(R.id.txtt2)
-    TextView txtt2;
+
     @BindView(R.id.txtt3)
-    TextView txtt3;
+    LinearLayout txtt3;
     @BindView(R.id.txtt4)
-    TextView txtt4;
+    LinearLayout txtt4;
 
 
     @Override

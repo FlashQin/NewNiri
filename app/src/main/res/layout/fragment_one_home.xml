@@ -15,433 +15,377 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/top_bg"
+            android:background="#FFFF6A1B"
             android:orientation="vertical">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="113dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginRight="40dp">
-
-                <TextView
-                    android:id="@+id/txt1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Amazon"
-                    android:textColor="#000000"
-                    android:textSize="16sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <View
-                    android:id="@+id/view1"
-                    android:layout_width="90dp"
-                    android:layout_height="2dp"
-                    android:background="#000000"
-                    app:layout_constraintBottom_toBottomOf="@id/txt1"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/txt1" />
-
-                <View
-                    android:id="@+id/view2"
-                    android:layout_width="90dp"
-                    android:layout_height="2dp"
-                    android:background="#000000"
-                    app:layout_constraintBottom_toBottomOf="@id/txt1"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/txt1" />
-
-                <View
-                    android:id="@+id/view3"
-                    android:layout_width="2dp"
-                    android:layout_height="113dp"
-                    android:background="#000000"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/view2" />
-
-                <View
-                    android:id="@+id/view4"
-                    android:layout_width="2dp"
-                    android:layout_height="113dp"
-                    android:background="#000000"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/view1" />
-
-                <View
-                    android:id="@+id/view5"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="#000000"
-                    app:layout_constraintBottom_toBottomOf="parent" />
-
-                <TextView
-                    android:id="@+id/txt2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Novo"
-                    android:textColor="#000000"
-                    android:textSize="28sp"
-                    android:textStyle="bold"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/txt1" />
-
-                <TextView
-                    android:id="@+id/txt3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="e-commerce social"
-                    android:textColor="#000000"
-                    android:textSize="28sp"
-                    android:textStyle="bold"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/txt2" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="4.5dp"
-                    android:layout_height="4.5dp"
-                    android:background="@drawable/shape_blackyuan" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="2021"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="4.5dp"
-                    android:layout_height="4.5dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/shape_blackyuan" />
-            </LinearLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/drawable_suggst_onebig">
-
+                android:layout_height="wrap_content">
                 <ImageView
-                    android:layout_width="136dp"
-                    android:layout_height="32dp"
-                    android:background="@drawable/title_bg"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="5dp"
-                    android:text="Amazon Cash"
-                    android:textColor="#ffffffff"
-                    android:textSize="15sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/txttt"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="52dp"
-                    android:ellipsize="end"
-                    android:lineSpacingExtra="10dp"
-                    android:maxLines="3"
-                    android:paddingBottom="12dp"
-                    android:text="Amazon Cash is a company that promotes Amazon Stores, increases store exposure, and provides a full social promotion service for stores. Everyone can sign up for a membership in Amazon's e-commerce mini-app for free. Learn to understand the work tasks of members, according to the actual situation to become an effective member, can put forward requests every day. No need for restock and delivery, you can get daily discounts from traders."
-                    android:textColor="#ff000000"
-                    android:textSize="13sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:background="@drawable/top_bg"
 
-                <net.qiujuer.genius.ui.widget.Button
-                    android:id="@+id/btnlink"
-                    android:layout_width="150dp"
-                    android:layout_height="36dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/drawable_button_wd"
-                    android:gravity="center"
 
-                    android:text="Share app "
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-
-                    app:layout_constraintTop_toBottomOf="@id/txttt" />
-
-                <net.qiujuer.genius.ui.widget.Button
-                    android:id="@+id/btn1more"
-                    android:layout_width="90dp"
-                    android:layout_height="36dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginRight="15dp"
-                    android:background="@drawable/drawable_button_wd"
-                    android:gravity="center"
-
-                    android:text="More >"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    app:layout_constraintRight_toRightOf="parent"
-
-                    app:layout_constraintTop_toBottomOf="@id/txttt" />
-                <View
-                    android:layout_width="match_parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnlink"
-                    android:layout_marginTop="15dp"
-                    android:layout_height="wrap_content"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/drawable_suggst_onebig">
-
+                    android:layout_height="500dp"/>
                 <ImageView
-                    android:id="@+id/img1"
-                    android:layout_width="111dp"
-                    android:layout_height="93dp"
-                    android:background="@drawable/icon_b1"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="5dp"
-                    android:lineSpacingExtra="10dp"
-                    android:text="What is Amazon's social\n electronic currency trading\n platform like?"
-                    android:textColor="#000000"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    app:layout_constraintLeft_toRightOf="@id/img1"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/txt34"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="12dp"
-                    android:ellipsize="end"
-                    android:lineSpacingExtra="10dp"
-                    android:maxLines="3"
-                    android:paddingBottom="12dp"
-                    android:text='Amazon Cash is a social e-commerce platform for "sharing". It is the official strategic partner of Amazon. Based on a large number of Amazon merchants, he chose high-quality global products and believed that social sharing was the main product. This increased the merchant’s visibility on the Amazon platform and attracted traffic at the same time. Store rating, merchants can get more customers, and members and platforms can get merchant discounts.'
-                    android:textColor="#ff000000"
-                    android:textSize="13sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img1" />
+                    android:background="@drawable/img_home_top"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="85dp"
+                    android:layout_height="143dp"/>
 
-                <net.qiujuer.genius.ui.widget.Button
-                    android:id="@+id/brnwd"
-                    android:layout_width="180dp"
-                    android:layout_height="36dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginRight="15dp"
-                    android:background="@drawable/drawable_button_wd"
-                    android:gravity="center"
-                    android:text="More  >"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:visibility="visible"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/txt34" />
-                <View
-                    android:layout_width="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/brnwd"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginTop="12dp"
-                    android:layout_height="wrap_content"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/drawable_suggst_onebig">
-
-                <ImageView
-                    android:id="@+id/img2"
-                    android:layout_width="111dp"
-                    android:layout_height="93dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/icon_b2"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="5dp"
-                    android:lineSpacingExtra="10dp"
-                    android:text="How to make money with\n Amazon Social Cash\n e-commerce"
-                    android:textColor="#000000"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    app:layout_constraintLeft_toRightOf="@id/img2"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/txt44"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginRight="16dp"
-                    android:lineSpacingExtra="10dp"
-                    android:paddingBottom="12dp"
-                    android:text=" 1. Increase product order revenue\n
+                    android:orientation="vertical"
+                    android:layout_marginTop="285dp"
+                    android:layout_height="match_parent">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="72dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/drawable_suggst_onebig">
+
+                        <ImageView
+                            android:layout_width="136dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/title_bg"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:text="Amazon Cash"
+                            android:textColor="#ffffffff"
+                            android:textSize="15sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/txttt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginTop="52dp"
+                            android:ellipsize="end"
+                            android:lineSpacingExtra="10dp"
+                            android:maxLines="3"
+                            android:paddingBottom="12dp"
+                            android:text="Amazon Cash is a company that promotes Amazon Stores, increases store exposure, and provides a full social promotion service for stores. Everyone can sign up for a membership in Amazon's e-commerce mini-app for free. Learn to understand the work tasks of members, according to the actual situation to become an effective member, can put forward requests every day. No need for restock and delivery, you can get daily discounts from traders."
+                            android:textColor="#ff000000"
+                            android:textSize="13sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <net.qiujuer.genius.ui.widget.Button
+                            android:id="@+id/btnlink"
+                            android:layout_width="150dp"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/drawable_button_wd"
+                            android:gravity="center"
+
+                            android:text="Share app "
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+
+                            app:layout_constraintTop_toBottomOf="@id/txttt" />
+
+                        <net.qiujuer.genius.ui.widget.Button
+                            android:id="@+id/btn1more"
+                            android:layout_width="90dp"
+                            android:layout_height="36dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginRight="15dp"
+                            android:background="@drawable/drawable_button_wd"
+                            android:gravity="center"
+
+                            android:text="More >"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            app:layout_constraintRight_toRightOf="parent"
+
+                            app:layout_constraintTop_toBottomOf="@id/txttt" />
+                        <View
+                            android:layout_width="match_parent"
+                            app:layout_constraintTop_toBottomOf="@+id/btnlink"
+                            android:layout_marginTop="15dp"
+                            android:layout_height="wrap_content"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/drawable_suggst_onebig">
+
+                        <ImageView
+                            android:id="@+id/img1"
+                            android:layout_width="111dp"
+                            android:layout_height="93dp"
+                            android:background="@drawable/icon_b1"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:lineSpacingExtra="10dp"
+                            android:text="What is Amazon's social\n electronic currency trading\n platform like?"
+                            android:textColor="#000000"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            app:layout_constraintLeft_toRightOf="@id/img1"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/txt34"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginTop="12dp"
+                            android:ellipsize="end"
+                            android:lineSpacingExtra="10dp"
+                            android:maxLines="3"
+                            android:paddingBottom="12dp"
+                            android:text='Amazon Cash is a social e-commerce platform for "sharing". It is the official strategic partner of Amazon. Based on a large number of Amazon merchants, he chose high-quality global products and believed that social sharing was the main product. This increased the merchant’s visibility on the Amazon platform and attracted traffic at the same time. Store rating, merchants can get more customers, and members and platforms can get merchant discounts.'
+                            android:textColor="#ff000000"
+                            android:textSize="13sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/img1" />
+
+                        <net.qiujuer.genius.ui.widget.Button
+                            android:id="@+id/brnwd"
+                            android:layout_width="180dp"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginRight="15dp"
+                            android:background="@drawable/drawable_button_wd"
+                            android:gravity="center"
+                            android:text="More  >"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:visibility="visible"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/txt34" />
+                        <View
+                            android:layout_width="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@id/brnwd"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:layout_marginTop="12dp"
+                            android:layout_height="wrap_content"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/drawable_suggst_onebig">
+
+                        <ImageView
+                            android:id="@+id/img2"
+                            android:layout_width="111dp"
+                            android:layout_height="93dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/icon_b2"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:lineSpacingExtra="10dp"
+                            android:text="How to make money with\n Amazon Social Cash\n e-commerce"
+                            android:textColor="#000000"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            app:layout_constraintLeft_toRightOf="@id/img2"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/txt44"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginRight="16dp"
+                            android:lineSpacingExtra="10dp"
+                            android:paddingBottom="12dp"
+                            android:text=" 1. Increase product order revenue\n
 2. Earn income by promoting products by     lower-level users\n
 3. Promotion of membership revenue"
-                    android:textColor="#ff000000"
-                    android:textSize="13sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/img2" />
+                            android:textColor="#ff000000"
+                            android:textSize="13sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/img2" />
 
 
-                <View
-                    android:layout_width="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/txt44"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginTop="12dp"
-                    android:layout_height="wrap_content"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="12dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="10dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/drawable_suggst_onebig">
-
-
-                <TextView
-                    android:id="@+id/txtt1"
-                    android:layout_width="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginLeft="12dp"
-                    android:lineSpacingExtra="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Working time  :"
-                    android:layout_marginTop="5dp"
-                    android:textColor="#000000"
-                    android:textSize="12sp"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:id="@+id/txtt2"
-                    android:layout_width="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintLeft_toRightOf="@+id/txtt1"
-                    android:layout_marginLeft="12dp"
-                    android:lineSpacingExtra="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text=" 9:00AM--6:00PM
-"
-                    android:layout_marginTop="5dp"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:id="@+id/txtt3"
-                    android:layout_width="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/txtt1"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginLeft="12dp"
-                    android:lineSpacingExtra="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Complaint mailbox："
-                    android:layout_marginTop="5dp"
-                    android:textColor="#000000"
-                    android:textSize="12sp"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:id="@+id/txtt4"
-                    android:layout_width="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/txtt3"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginLeft="12dp"
-                    android:lineSpacingExtra="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="info@amazoncash.vip"
-                    android:layout_marginTop="5dp"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:layout_height="wrap_content"/>
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/con4"
-                    android:layout_width="match_parent"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:visibility="gone"
-                    android:background="@drawable/drawable_greybig"
-                    android:layout_height="44dp">
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                        <View
+                            android:layout_width="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@id/txt44"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:layout_marginTop="12dp"
+                            android:layout_height="wrap_content"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        android:layout_marginLeft="12dp"
-                        android:text="请输入您想说的话…"
-                        android:textColor="#ff333333"
-                        android:textSize="15sp"
-                        />
-                    <ImageView
-                        android:layout_width="37dp"
-                        android:background="@drawable/icon_kfan"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        android:layout_marginRight="10dp"
-                        android:layout_height="37dp"/>
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="12dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="10dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/drawable_suggst_onebig">
 
 
-                <View
-                    android:layout_width="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/con4"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginTop="12dp"
-                    android:layout_height="wrap_content"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/txtt2"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:gravity="center_vertical"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:background="@drawable/icon_time"
+                                android:layout_height="16dp"/>
+                            <TextView
+
+                                android:layout_width="wrap_content"
+
+                                android:layout_marginLeft="12dp"
+
+                                android:text="Operating hours: 9:00AM-6:PM
+"
+
+                                android:textColor="#000000"
+                                android:textSize="14sp"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/txtt3"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            app:layout_constraintTop_toBottomOf="@id/txtt2"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:gravity="center_vertical"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:background="@drawable/icon_kf"
+                                android:layout_height="16dp"/>
+                            <TextView
+
+                                android:layout_width="wrap_content"
+
+                                android:layout_marginLeft="12dp"
+
+
+                                android:text="Consumer hotline: +234 "
+
+                                android:textColor="#000000"
+                                android:textSize="14sp"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/txtt4"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            app:layout_constraintTop_toBottomOf="@id/txtt3"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:gravity="center_vertical"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:background="@drawable/icon_dh"
+                                android:layout_height="16dp"/>
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@id/txtt3"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                android:layout_marginLeft="12dp"
+                                android:text="Complaint mailbox: info@kaymu.vip"
+
+                                android:textColor="#000000"
+                                android:textSize="14sp"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/con4"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:visibility="gone"
+                            android:background="@drawable/drawable_greybig"
+                            android:layout_height="44dp">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                android:layout_marginLeft="12dp"
+                                android:text="请输入您想说的话…"
+                                android:textColor="#ff333333"
+                                android:textSize="15sp"
+                                />
+                            <ImageView
+                                android:layout_width="37dp"
+                                android:background="@drawable/icon_kfan"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                android:layout_marginRight="10dp"
+                                android:layout_height="37dp"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <View
+                            android:layout_width="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@id/con4"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:layout_marginTop="12dp"
+                            android:layout_height="wrap_content"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+
             <View
                 android:layout_width="wrap_content"
 

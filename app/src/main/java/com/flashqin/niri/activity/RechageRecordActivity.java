@@ -108,7 +108,7 @@ public class RechageRecordActivity extends BaseActivity implements OnLoadMoreLis
                 time2=item.getCreatedAt().getTime().getHour()+":"+item.getCreatedAt().getTime().getMinute()+":"+item.getCreatedAt().getTime().getSecond();
 
                 txtname.setText(time1+" "+time2);
-                txtamount.setText(item.getAmount()+"R$");
+                txtamount.setText(item.getAmount()+"₦");
 
                 switch (item.getStatus()){
                     case 0:

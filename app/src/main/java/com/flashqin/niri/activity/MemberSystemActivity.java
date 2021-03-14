@@ -36,21 +36,21 @@ public class MemberSystemActivity extends BaseActivity {
     private BaseQuickAdapter<MenberSystemBean, BaseViewHolder> mOneAdapter;
     String[] strlv = {"Level 0","Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6"};
     String[] stramout = {"100","100", "500", "2000", "8000", "20000", "100000"};
-    String[] strcontent1 = {" The registration bonus is R$100, but it can only be withdrawn if the member reaches Level 3 or above\n" +
+    String[] strcontent1 = {" The registration bonus is ₦100, but it can only be withdrawn if the member reaches Level 3 or above\n" +
             " Do order tasks only on the registration day\n" +
             " The profit is 0.3% of each order amount\n Members shall pay 15% of the withdrawal amount to the platform."
-            , " Recharge R$100 to become a valid member\n" +
+            , " Recharge ₦100 to become a valid member\n" +
             " The profit is 0.3% of each order amount\n" +
-            " Members shall pay 15% of the withdrawal amount to the platform.\n", " Recharge R$500 to become a valid member\n" +
+            " Members shall pay 15% of the withdrawal amount to the platform.\n", " Recharge ₦500 to become a valid member\n" +
             " The profit is 0.35% of each order amount\n" +
-            " Members shall pay 12% of the withdrawal amount to the platform.\n", " Recharge R$2000 to become a valid member\n" +
+            " Members shall pay 12% of the withdrawal amount to the platform.\n", " Recharge ₦2000 to become a valid member\n" +
             " The profit is 0.4% of each order amount\n" +
             " Members shall pay 12% of the withdrawal amount to the platform.\n" +
-            " You will receive a registration bonus of R$100\n", " Recharge R$8000 to become a valid member\n" +
+            " You will receive a registration bonus of ₦100\n", " Recharge ₦8000 to become a valid member\n" +
             " The profit is 0.4% of each order amount\n" +
-            " Members shall pay 10% of the withdrawal amount to the platform.\n", " Recharge R$20000 to become a valid member\n" +
+            " Members shall pay 10% of the withdrawal amount to the platform.\n", " Recharge ₦20000 to become a valid member\n" +
             " The profit is 0.5% of each order amount\n" +
-            " Members shall pay 10% of the withdrawal amount to the platform.\n"," Recharge R$100000 to become a valid member\n" +
+            " Members shall pay 10% of the withdrawal amount to the platform.\n"," Recharge ₦100000 to become a valid member\n" +
             " The profit is 0.5% of each order amount\n" +
             " Members shall pay 6% of the withdrawal amount to the platform.\n"};
     String[] strlcontent2 = {"0.3%","0.3%", "0.35%", "0.4%", "0.4%", "0.5%", "0.5%"};

@@ -90,7 +90,7 @@ public class MainActivity extends BaseActivity {
     private DialogPlus dialog_fail;
     private int downloadId1;
     public String singleFileSaveName;
-    public final String LIVECHAT_SUPPORT_LICENCE_NR = "12632334";
+    public final String LIVECHAT_SUPPORT_LICENCE_NR = "12682110";
     ResigerBean resigerBean;
 
     @Override
@@ -504,7 +504,7 @@ public class MainActivity extends BaseActivity {
     }
 
     public ChatWindowConfiguration getChatWindowConfiguration() {
-        return new ChatWindowConfiguration(LIVECHAT_SUPPORT_LICENCE_NR, "YaOC-XsGg", resigerBean == null ? "nome" : resigerBean.getBody().getData().getName(), null, null);
+        return new ChatWindowConfiguration(LIVECHAT_SUPPORT_LICENCE_NR, "YaOC-XsGg", resigerBean == null ? "name" : resigerBean.getBody().getData().getName(), null, null);
     }
 
     private void initNotice() {

@@ -124,7 +124,7 @@ public class WalletFragment extends BaseFragment {
                 TextView txtnum = helper.itemView.findViewById(R.id.txtnum);
 
                 txtname.setText(item.getName());
-                txtnum.setText("R$ " + item.getMoney());
+                txtnum.setText("₦ " + item.getMoney());
                 helper.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

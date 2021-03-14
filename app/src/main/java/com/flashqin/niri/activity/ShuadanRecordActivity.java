@@ -79,7 +79,7 @@ public class ShuadanRecordActivity extends BaseActivity {
                 TextView txttype = helper.itemView.findViewById(R.id.txttype);
 
                 txtname.setText(item.getBaseDate());
-                txtamount.setText(item.getTradeIncome() + "R$");
+                txtamount.setText(item.getTradeIncome() + "₦");
                 txttype.setText(item.getTradeIncome() + " ");
                 txttype.setText(item.getLevel()+"");
 //                switch (item.getStatus()) {

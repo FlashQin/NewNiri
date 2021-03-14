@@ -313,7 +313,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="55dp"
-                    android:layout_marginBottom="25dp"
+
                     android:background="@drawable/drawable_button_yuan_yellow"
                     android:gravity="center"
 
@@ -322,6 +322,17 @@
 
                     android:textSize="20sp"
                     android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/txtlogoin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="visible"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="25dp"
+                    android:text="I’ve an account -->Login"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

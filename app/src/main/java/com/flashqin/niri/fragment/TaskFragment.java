@@ -408,7 +408,7 @@ public class TaskFragment extends BaseFragment {
                                 return;
                             }
                             for (int i = 0; i < homeListBean.getBody().getData().size(); i++) {
-                                messages.add(homeListBean.getBody().getData().get(i).getName() + " " + "Withdrawal" + " " + String.valueOf(homeListBean.getBody().getData().get(i).getAmount()).replace(".0", "") + " R$ " + "Succse;     ");
+                                messages.add(homeListBean.getBody().getData().get(i).getName() + " " + "Withdrawal" + " " + String.valueOf(homeListBean.getBody().getData().get(i).getAmount()).replace(".0", "") + " ₦ " + "Succse;     ");
                             }
                             for (int i = 0; i < messages.size(); i++) {
                                 content = content + "  " + messages.get(i);

@@ -83,7 +83,7 @@ public class WithdrawalRecordActivity extends BaseActivity {
                 String time2 = item.getCreatedAt().getTime().getHour() + ":" + item.getCreatedAt().getTime().getMinute() + ":" + item.getCreatedAt().getTime().getSecond();
 
                 txtname.setText(time1 + " " + time2);
-                txtamount.setText(item.getAmount() + "R$");
+                txtamount.setText(item.getAmount() + "₦");
                 switch (item.getStatus()) {
                     case 0:
                         txttype.setText("Revisão pendente");

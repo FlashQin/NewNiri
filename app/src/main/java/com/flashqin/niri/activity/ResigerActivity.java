@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONObject;
 import com.blankj.utilcode.util.GsonUtils;
@@ -60,6 +61,8 @@ public class ResigerActivity extends BaseActivity {
     net.qiujuer.genius.ui.widget.Button btnmodiftinfo;
     @BindView(R.id.edsharetcode)
     EditText edsharetcode;
+    @BindView(R.id.txtlogoin)
+    TextView txtlogoin;
 
     @Override
     public void initImmersionBar() {
@@ -94,14 +97,17 @@ public class ResigerActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.linback, R.id.btncode, R.id.btnmodiftinfo})
+    @OnClick({R.id.linback,R.id.txtlogoin, R.id.btncode, R.id.btnmodiftinfo})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.linback:
                 finish();
                 break;
+            case R.id.txtlogoin:
+                finish();
+                break;
             case R.id.btncode:
-                if (edtname.getText().toString().trim().length() < 10||edtname.getText().toString().trim().length() >11) {
+                if (edtname.getText().toString().trim().length() < 10 || edtname.getText().toString().trim().length() > 11) {
                     ToastUtils.showShort("Please enter the correct mobile phone number");
                     return;
                 }
@@ -136,7 +142,7 @@ public class ResigerActivity extends BaseActivity {
                         });
                 break;
             case R.id.btnmodiftinfo:
-                if (edtname.getText().toString().trim().length() < 10||edtname.getText().toString().trim().length() >11) {
+                if (edtname.getText().toString().trim().length() < 10 || edtname.getText().toString().trim().length() > 11) {
                     ToastUtils.showShort("Please enter your phone number");
                     return;
                 }

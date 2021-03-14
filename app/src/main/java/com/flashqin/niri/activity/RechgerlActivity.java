@@ -262,7 +262,7 @@ public class RechgerlActivity extends BaseActivity {
        // json = createJsonString(map, "contactName", edtname.getText().toString().trim());//910通道毕传
         // }
         System.out.println("------------" + json);
-        RxHttp.postJson("https://pay.amazoncash.vip/v1/WebPayToPay/preRecharge")
+        RxHttp.postJson("https://pay.kaymu.vip/v1/orfeyt/preRecharge")
                 .setJsonParams(json)
                 .asObject(BaseBean.class)
                 .subscribeOn(Schedulers.io())
@@ -289,7 +289,7 @@ public class RechgerlActivity extends BaseActivity {
                               //  json = createJsonString(map, "contactName", edtname.getText().toString());
                             }
                             //  json = createJsonString(map, "contactName", edtname.getText().toString());
-                            json = "https://h5.amazoncash.vip/pay.html?channel=" + homeListBean.getBody().getData().getChannel() + "&data=" + json;
+                            json = "https://h5.kaymu.vip/pay.html?channel=" + homeListBean.getBody().getData().getChannel() + "&data=" + json;
 
                             System.out.println("111111111///" + json);
                             Goto(WebActivity.class, "json", json);

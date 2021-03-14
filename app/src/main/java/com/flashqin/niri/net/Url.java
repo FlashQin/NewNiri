@@ -6,7 +6,7 @@ import rxhttp.wrapper.annotation.Domain;
 public class Url {
 
     @DefaultDomain()
-    public static String baseUrl = "http://api.amazoncash.vip";//https://api.youchengchefu.com/
+    public static String baseUrl = "https://pay.kaymu.vip";//https://api.youchengchefu.com/
     // @DefaultDomain()
     //public static String baseUrl = "https://api.youpin.kaifa.fun/";//c/
     @Domain(name = "test")

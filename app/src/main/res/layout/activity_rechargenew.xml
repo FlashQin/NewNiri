@@ -42,7 +42,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/txtall"
             android:layout_marginLeft="2dp"
-            android:text="R$"
+            android:text="₦"
             android:textColor="#ffffffff"
             android:textSize="19sp"
             />

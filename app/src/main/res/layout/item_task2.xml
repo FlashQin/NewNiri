@@ -43,7 +43,7 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="R$"
+        android:text="₦"
         app:layout_constraintBottom_toBottomOf="@+id/txtmoney"
         app:layout_constraintRight_toLeftOf="@+id/txtmoney"
         android:textColor="#fff54029"
