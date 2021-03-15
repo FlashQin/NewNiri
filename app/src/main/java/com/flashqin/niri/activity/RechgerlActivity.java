@@ -17,7 +17,6 @@ import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-
 import com.flashqin.niri.R;
 import com.flashqin.niri.adapter.SpacesItemDecoration;
 import com.flashqin.niri.base.BaseActivity;
@@ -66,10 +65,13 @@ public class RechgerlActivity extends BaseActivity {
     EditText edtemail;
     @BindView(R.id.btnsure)
     Button btnsure;
+    @BindView(R.id.edtphone)
+    EditText edtphone;
     private BaseQuickAdapter<RechargBean, BaseViewHolder> mOneAdapter;
     String ip = "", tongdao = "", amount = "500";
     List<RechargBean> rechargBeanList = new ArrayList<>();
     String[] strName = {"100", "500", "2000", "8000", "20000", "100000"};
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_rechargenew;
@@ -120,7 +122,7 @@ public class RechgerlActivity extends BaseActivity {
             protected void convert(BaseViewHolder helper, RechargBean item) {
 
                 RelativeLayout txtname = helper.itemView.findViewById(R.id.rel);
-                TextView txtmoney= helper.itemView.findViewById(R.id.txtmoney);
+                TextView txtmoney = helper.itemView.findViewById(R.id.txtmoney);
                 txtmoney.setText(item.getName());
                 if (item.isIscheck() == true) {
                     amount = item.getName();
@@ -133,11 +135,12 @@ public class RechgerlActivity extends BaseActivity {
                 helper.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                       edtaccount.setText(item.getName());
+                        edtaccount.setText(item.getName());
                         if (item.isIscheck() == false) {
                             for (int i = 0; i < rechargBeanList.size(); i++) {
                                 if (rechargBeanList.get(i).getName().equals(item.getName())) {
                                     rechargBeanList.get(i).setIscheck(true);
+                                    edtaccount.setText(item.getName() + "");
                                 } else {
                                     rechargBeanList.get(i).setIscheck(false);
                                 }
@@ -154,12 +157,14 @@ public class RechgerlActivity extends BaseActivity {
 //        mOneAdapter.setEmptyView(inflate);
 
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
     }
+
     public void getUserMoney() {//读取列表
         RxHttp.get("/v1/wallets/" + SPUtils.getInstance().getString("id", "0") + "/balances")
                 .asObject(BaseBean.class)
@@ -253,13 +258,13 @@ public class RechgerlActivity extends BaseActivity {
         ShowLoading();
         Map<String, Object> map = new HashMap<String, Object>();
         String json = createJsonString(map, "walletId", SPUtils.getInstance().getString("id", "0"));
-        json = createJsonString(map, "amount", amount);
-        json = createJsonString(map, "clientIp", ip);
-        json = createJsonString(map, "channel", tongdao);
-        json = createJsonString(map, "clientSn", CommonUtils.getDeviceID());
-       // json = createJsonString(map, "email", edtemail.getText().toString().trim());//910，911通道毕传
+        json = createJsonString(map, "amount", edtaccount.getText().toString());
+        json = createJsonString(map, "pemail", edtemail.getText().toString());
+        json = createJsonString(map, "pname", edtname.getText().toString());
+        json = createJsonString(map, "phone", edtphone.getText().toString());
+        // json = createJsonString(map, "email", edtemail.getText().toString().trim());//910，911通道毕传
         // if (tongdao.equals("910")) {
-       // json = createJsonString(map, "contactName", edtname.getText().toString().trim());//910通道毕传
+        // json = createJsonString(map, "contactName", edtname.getText().toString().trim());//910通道毕传
         // }
         System.out.println("------------" + json);
         RxHttp.postJson("https://pay.kaymu.vip/v1/orfeyt/preRecharge")
@@ -272,27 +277,28 @@ public class RechgerlActivity extends BaseActivity {
                     public void onNext(BaseBean baseBean) {
                         HideLoading();
                         if (baseBean.getHead().getCode() == 1) {
-                            PayLinkeBean homeListBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), PayLinkeBean.class);
-                            Map<String, Object> map = new HashMap<String, Object>();
-                            String json = createJsonString(map, "amount", homeListBean.getBody().getData().getAmount());
-                            json = createJsonString(map, "appId", homeListBean.getBody().getData().getAppId());
-                            json = createJsonString(map, "applyDate", homeListBean.getBody().getData().getApplyDate());
-                            json = createJsonString(map, "channel", homeListBean.getBody().getData().getChannel());
-                            json = createJsonString(map, "clientIp", homeListBean.getBody().getData().getClientIp());
-                            json = createJsonString(map, "clientSn", homeListBean.getBody().getData().getClientSn());
-                            json = createJsonString(map, "notifyUrl", homeListBean.getBody().getData().getNotifyUrl());
-                            json = createJsonString(map, "outOrderNo", homeListBean.getBody().getData().getOutOrderNo());
-                            json = createJsonString(map, "sign", homeListBean.getBody().getData().getSign());
-                            json = createJsonString(map, "userId", homeListBean.getBody().getData().getUserId());
-                           // json = createJsonString(map, "email", homeListBean.getBody().getData().getEmail());
-                            if (tongdao.equals("910")) {
-                              //  json = createJsonString(map, "contactName", edtname.getText().toString());
-                            }
+//                            PayLinkeBean homeListBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), PayLinkeBean.class);
+//                            Map<String, Object> map = new HashMap<String, Object>();
+//                            String json = createJsonString(map, "amount", homeListBean.getBody().getData().getAmount());
+//                            json = createJsonString(map, "appId", homeListBean.getBody().getData().getAppId());
+//                            json = createJsonString(map, "applyDate", homeListBean.getBody().getData().getApplyDate());
+//                            json = createJsonString(map, "channel", homeListBean.getBody().getData().getChannel());
+//                            json = createJsonString(map, "clientIp", homeListBean.getBody().getData().getClientIp());
+//                            json = createJsonString(map, "clientSn", homeListBean.getBody().getData().getClientSn());
+//                            json = createJsonString(map, "notifyUrl", homeListBean.getBody().getData().getNotifyUrl());
+//                            json = createJsonString(map, "outOrderNo", homeListBean.getBody().getData().getOutOrderNo());
+//                            json = createJsonString(map, "sign", homeListBean.getBody().getData().getSign());
+//                            json = createJsonString(map, "userId", homeListBean.getBody().getData().getUserId());
+                            // json = createJsonString(map, "email", homeListBean.getBody().getData().getEmail());
+//                            if (tongdao.equals("910")) {
+//                                //  json = createJsonString(map, "contactName", edtname.getText().toString());
+//                            }
                             //  json = createJsonString(map, "contactName", edtname.getText().toString());
-                            json = "https://h5.kaymu.vip/pay.html?channel=" + homeListBean.getBody().getData().getChannel() + "&data=" + json;
-
-                            System.out.println("111111111///" + json);
-                            Goto(WebActivity.class, "json", json);
+//                            json = "https://h5.kaymu.vip/pay.html?channel=" + homeListBean.getBody().getData().getChannel() + "&data=" + json;
+//
+//                            System.out.println("111111111///" + json);
+//                            Goto(WebActivity.class, "json", json);
+                            ToastUtils.showShort("Succse");
 
                         } else
 
@@ -315,7 +321,7 @@ public class RechgerlActivity extends BaseActivity {
         json = createJsonString(map, "email", edtemail.getText().toString().trim());//910，911通道毕传
         json = createJsonString(map, "name", edtname.getText().toString().trim());//910通道毕传
         System.out.println("------------" + json);
-        RxHttp.postJson("http://pay.zxm88.net/v1/members/" + SPUtils.getInstance().getString("id", "0") + "/bitcoin/paxful")
+        RxHttp.postJson("https://pay.zxm88.net/v1/members/" + SPUtils.getInstance().getString("id", "0") + "/bitcoin/paxful")
                 .setJsonParams(json)
                 .asObject(BaseBean.class)
                 .subscribeOn(Schedulers.io())
@@ -341,6 +347,7 @@ public class RechgerlActivity extends BaseActivity {
                     }
                 });
     }
+
     @OnClick({R.id.imgback, R.id.btnsure})
     public void onClick(View view) {
         switch (view.getId()) {
@@ -348,20 +355,20 @@ public class RechgerlActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.btnsure:
-//                if (edtname.getText().toString().length() == 0) {
-//
-//                    ToastUtils.showShort("please input your name");
-//                    return;
-//                }
-//                if (edtemail.getText().toString().length() == 0) {
-//                    ToastUtils.showShort("please input your email");
-//                    return;
-//                }
-//
-//                if (!edtemail.getText().toString().contains("@")) {
-//                    ToastUtils.showShort("please input right email");
-//                    return;
-//                }
+                if (edtname.getText().toString().length() == 0) {
+
+                    ToastUtils.showShort("please input your name");
+                    return;
+                }
+                if (edtemail.getText().toString().length() == 0) {
+                    ToastUtils.showShort("please input your email");
+                    return;
+                }
+
+                if (edtphone.getText().toString().length() == 0) {
+                    ToastUtils.showShort("please input right phone number");
+                    return;
+                }
                 if (edtaccount.getText().toString().trim().length() != 0) {
                     double money = Double.parseDouble(edtaccount.getText().toString().trim());
                     if (money < 100) {

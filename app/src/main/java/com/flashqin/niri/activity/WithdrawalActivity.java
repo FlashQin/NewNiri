@@ -2,6 +2,7 @@ package com.flashqin.niri.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -194,57 +195,9 @@ public class WithdrawalActivity extends BaseActivity {
                 edtmoney.setText(txttotlenum.getText().toString());
                 break;
             case R.id.brnwd:
-                if (tongdao.equals("914")) {
-                    if (typeString.equals("CPF") || typeString.equals("CNPJ")) {
-                        edtdocumentId.setText(edtcard.getText().toString());
+                postMoney();
 
-                    }
-                    if (edtname.getText().toString().length() == 0 || edtmoney.getText().toString().length() == 0 || edtcard.getText().toString().length() == 0 ||
-                            edtdocumentId.getText().toString().length() == 0
-                    ) {
-                        ToastUtils.showShort("Please enter the data");
-                        return;
-                    }
-                    if (Double.parseDouble(edtmoney.getText().toString().trim()) < 2) {
-                        ToastUtils.showShort("Withdrawal of R$2 at least");
-                        return;
-                    }
-                    if (Double.parseDouble(edtmoney.getText().toString().trim()) > 100000) {
-                        ToastUtils.showLong("One withdrawal cannot exceed 100000, please divide it into multiple withdrawals");
-                        return;
-                    }
-                    Map<String, Object> map = new HashMap<String, Object>();
-                    String json = createJsonString(map, "walletId", SPUtils.getInstance().getString("id", "0"));
-                    json = createJsonString(map, "amount", edtmoney.getText().toString().trim());
-                    json = createJsonString(map, "clientIp", ip);
-                    json = createJsonString(map, "clientSn", CommonUtils.getDeviceID());
 
-                    json = createJsonString(map, "account", edtcard.getText().toString().trim());
-                    json = createJsonString(map, "accountType", typeString);
-                    json = createJsonString(map, "documentId", edtdocumentId.getText().toString().trim());
-                    json = createJsonString(map, "name", edtname.getText().toString().trim());
-                    postMoney(json);
-                } else {
-                    if (edtname.getText().toString().length() == 0 || edtmoney.getText().toString().length() == 0 || edtaccount913.getText().toString().length() == 0
-                            || edtaccountType.getText().toString().length() == 0 || edtDocumentId.getText().toString().length() == 0 || edtAccountDigit.getText().toString().length() == 0) {
-                        ToastUtils.showShort("Please enter the data");
-                        return;
-                    }
-                    Map<String, Object> map = new HashMap<String, Object>();
-                    String json = createJsonString(map, "walletId", SPUtils.getInstance().getString("id", "0"));
-                    json = createJsonString(map, "amount", edtmoney.getText().toString().trim());
-                    json = createJsonString(map, "clientIp", ip);
-                    json = createJsonString(map, "clientSn", CommonUtils.getDeviceID());
-
-                    json = createJsonString(map, "name", edtname.getText().toString().trim());
-                    json = createJsonString(map, "documentId", edtdocumentId.getText().toString().trim());
-                    json = createJsonString(map, "bankcode", bankString);
-                    json = createJsonString(map, "branch", edtaccount913.getText().toString().trim());
-                    json = createJsonString(map, "account_type", leixingString);
-                    json = createJsonString(map, "account_number", edtaccountType.getText().toString().trim());
-                    json = createJsonString(map, "account_digit", edtDocumentId.getText().toString().trim());
-                    postMoney(json);
-                }
 
                 break;
             case R.id.txttab1:
@@ -268,69 +221,45 @@ public class WithdrawalActivity extends BaseActivity {
     }
 
     private void initSpinner() {
-        List<String> strsBank = new ArrayList<>();
-
-        strsBank.add("Itaú");
-        strsBank.add("Santander");
-        strsBank.add("Caixa");
-        strsBank.add("Banco do Brasil");
-        strsBank.add("Bradesco");
-        spinnerKindsBranchCode.attachDataSource(strsBank);
-        spinnerKindsBranchCode.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
-            @Override
-            public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
-                // This example uses String, but your type can be any
-                bankString = parent.getItemAtPosition(position).toString();
-
-
-            }
-        });
-        List<String> strsType = new ArrayList<>();
-
-        strsType.add("Corrente ");
-        strsType.add("Poupança");
-
-        spinnerKindstype.attachDataSource(strsType);
-        spinnerKindstype.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
-            @Override
-            public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
-                // This example uses String, but your type can be any
-                leixingString = parent.getItemAtPosition(position).toString();
-
-
-            }
-        });
         List<String> strs = new ArrayList<>();
-        strs.add("CPF");
-        strs.add("CNPJ");
-        strs.add("PHONE");
-        strs.add("EMAIL");
-        strs.add("EVP");
-        spinnerKinds.attachDataSource(strs);
-        spinnerKinds.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
-            @Override
-            public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
-                // This example uses String, but your type can be any
-                typeString = parent.getItemAtPosition(position).toString();
 
-                edtdocumentId.setText("");
-                if (typeString.equals("PHONE") || typeString.equals("EMAIL") || typeString.equals("EVP")) {
-                    lindocuid.setVisibility(View.VISIBLE);
+        RxHttp.get("https://pay.kaymu.vip/v1/orfeyt/bankcode/list")
+                .asObject(BaseBean.class)
+                .subscribeOn(Schedulers.io())
+                .as(RxLife.asOnMain(this))
+                .subscribe(new BaseObserver<BaseBean>() {
+                    @Override
+                    public void onNext(BaseBean baseBean) {
 
-                    if (typeString.equals("PHONE")) {
-                        edtcard.setText("+55");
-                    } else {
-                        edtcard.setText("");
-                        edtcard.setHint("input " + typeString);
+                        if (baseBean.getHead().getCode() == 1) {
+                            ifsListBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), IFSListBean.class);
+
+                            for (int i = 0; i < ifsListBean.getBody().getData().size(); i++) {
+                                strs.add(ifsListBean.getBody().getData().get(i).getName() );
+                            }
+                            spinnerKinds.attachDataSource(strs);
+                            spinnerKinds.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
+                                @Override
+                                public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
+                                    // This example uses String, but your type can be any
+                                    bankString = parent.getItemAtPosition(position).toString();
+
+
+                                }
+                            });
+
+                        } else
+
+                            ToastUtils.showShort(baseBean.getHead().getMessage());
                     }
-                } else {
-                    edtcard.setText("");
-                    edtcard.setHint("input " + typeString);
-                    lindocuid.setVisibility(View.GONE);
-                }
-            }
-        });
-        edtcard.setHint("input CPF");
+
+
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+                        HideLoading();
+                    }
+                });
     }
 
     public void getUserMoney() {//读取列表
@@ -438,8 +367,19 @@ public class WithdrawalActivity extends BaseActivity {
                 });
     }
 
-    public void postMoney(String json) {//发起体现
+    public void postMoney() {//发起体现
         ShowLoading();
+        if (edtemail.getText().toString().length() == 0 || edtname.getText().toString().length() == 0 || edtmoney.getText().toString().length() == 0) {
+            ToastUtils.showShort("Please enter the data");
+            return;
+        }
+        Map<String, Object> map = new HashMap<String, Object>();
+        String json = createJsonString(map, "walletId", SPUtils.getInstance().getString("id", "0"));
+        json = createJsonString(map, "amount", edtmoney.getText().toString().trim());
+
+        json = createJsonString(map, "acc_no", edtemail.getText().toString());
+        json = createJsonString(map, "acc_name", edtname.getText().toString().trim());
+        json = createJsonString(map, "bank_code", bankString);
 
         System.out.println("json----" + json);
         RxHttp.postJson("https://pay.amazoncash.vip/v1/WebPayToPay/applyWithdraw")
@@ -454,6 +394,7 @@ public class WithdrawalActivity extends BaseActivity {
                         if (baseBean.getHead().getCode() == 1) {
                             //  IPBean homeListBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), IPBean.class);
 
+                            finish();
                             Goto(WithdrawalRecordActivity.class);
 
                         } else

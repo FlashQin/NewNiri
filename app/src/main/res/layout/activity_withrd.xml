@@ -67,6 +67,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="15dp"
+                android:visibility="gone"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -181,6 +182,7 @@
                 android:id="@+id/lin913"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -444,7 +446,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="visible">
 
 
                 <LinearLayout
@@ -454,12 +456,12 @@
                     android:layout_marginTop="26dp"
                     android:layout_marginRight="15dp"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="E-mail "
+                        android:text="Account NO. "
                         android:textColor="#ff333333"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -470,7 +472,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
                         android:background="@null"
-                        android:hint="e-mail "
+                        android:hint="Bank account NO. "
                         android:textColor="#ffd7d7d7"
                         android:textSize="15sp" />
 
@@ -527,7 +529,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:text="PIX modelo"
+                        android:text="Bank code"
 
                         android:textColor="#ff333333"
                         android:textSize="15sp"
@@ -574,6 +576,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="26dp"
                     android:layout_marginRight="15dp"
+                    android:visibility="gone"
                     android:orientation="vertical">
 
                     <TextView
@@ -607,6 +610,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="26dp"
                     android:layout_marginRight="15dp"
+                    android:visibility="gone"
                     android:orientation="vertical">
 
                     <TextView
