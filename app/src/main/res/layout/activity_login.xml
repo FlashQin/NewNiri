@@ -68,7 +68,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:alpha="0.4"
-                    android:text="+55"
+                    android:text="+234"
                     android:textColor="#000000"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -114,7 +114,7 @@
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@+id/imglook"
                     android:background="@null"
-                    android:hint="Eenter password"
+                    android:hint="Enter password"
                     android:inputType="textPassword"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/sp_14" />

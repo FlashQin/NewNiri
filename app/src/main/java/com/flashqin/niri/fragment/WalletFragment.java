@@ -15,6 +15,7 @@ import com.blankj.utilcode.util.Utils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.flashqin.niri.R;
+import com.flashqin.niri.activity.GongziRecordActivity;
 import com.flashqin.niri.activity.LoginActivity;
 import com.flashqin.niri.activity.RechageRecordActivity;
 import com.flashqin.niri.activity.RechgerlActivity;
@@ -72,8 +73,10 @@ public class WalletFragment extends BaseFragment {
     TextView txtlv;
     @BindView(R.id.btnexit)
     LinearLayout btnexit;
+    @BindView(R.id.linexit)
+    LinearLayout linexit;
     private BaseQuickAdapter<WallDataBean, BaseViewHolder> mOneAdapter;
-    String[] wallitem = {"Total\n top-up", "Total\n withdrawal", "Revenue\n amounts", "Commission\n amounts"};//, "salary"
+    String[] wallitem = {"Total\n top-up", "Total\n withdrawal", "Revenue\n amounts", "Commission\n amounts","salary"};//, "salary"
 
     List<String> moneylist = new ArrayList<>();
     List<WallDataBean> wallDataBeanList = new ArrayList<>();
@@ -101,7 +104,7 @@ public class WalletFragment extends BaseFragment {
 
         getMenberInfoData();
         getInfo();
-        //getNoticeList();
+       // getNoticeList();
     }
 
     @Override
@@ -141,9 +144,9 @@ public class WalletFragment extends BaseFragment {
                             case "Commission\n amounts":
                                 Goto(YongJinRecordActivity.class);
                                 break;
-//                            case "salary":
-//                                Goto(GongziRecordActivity.class);
-//                                break;
+                            case "salary":
+                                Goto(GongziRecordActivity.class);
+                                break;
                         }
 
                     }
@@ -236,7 +239,7 @@ public class WalletFragment extends BaseFragment {
                 });
     }
 
-    @OnClick({R.id.linwd, R.id.linre, R.id.btnexit})
+    @OnClick({R.id.linwd, R.id.linre, R.id.linexit})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.linwd:
@@ -245,7 +248,7 @@ public class WalletFragment extends BaseFragment {
             case R.id.linre:
                 Goto(RechgerlActivity.class);
                 break;
-            case R.id.btnexit:
+            case R.id.linexit:
 
                 Run.onUiAsync(() -> {
                     ACache.get(Utils.getApp()).remove("USER_BEAN");

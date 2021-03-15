@@ -208,7 +208,7 @@ public class TaskFragment extends BaseFragment {
 
                         txtmoney.setText(item.getBalanceLowerLimit() + "");
                         if (item.getId()==0){
-                            txtmoney.setText("100" + "");
+                            txtmoney.setText("2000" + "");
 
                         }
                         if (userlv == item.getId()) {
@@ -408,7 +408,7 @@ public class TaskFragment extends BaseFragment {
                                 return;
                             }
                             for (int i = 0; i < homeListBean.getBody().getData().size(); i++) {
-                                messages.add(homeListBean.getBody().getData().get(i).getName() + " " + "Withdrawal" + " " + String.valueOf(homeListBean.getBody().getData().get(i).getAmount()).replace(".0", "") + " ₦ " + "Succse;     ");
+                                messages.add(homeListBean.getBody().getData().get(i).getName() + " " + "Withdrawal" + " " + String.valueOf(homeListBean.getBody().getData().get(i).getAmount()).replace(".0", "") + " ₦ " + "Success;     ");
                             }
                             for (int i = 0; i < messages.size(); i++) {
                                 content = content + "  " + messages.get(i);

@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
 
             android:layout_weight="1"
-            android:text="Encontro"
+            android:text="Date"
             android:gravity="center_horizontal"
             android:textColor="#ff6e6e6e"
             android:textSize="17sp"
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
 
             android:layout_weight="1"
-            android:text="Quantidade"
+            android:text="Aamount"
             android:gravity="center_horizontal"
             android:textColor="#ff6e6e6e"
             android:textSize="17sp"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
 
             android:layout_weight="1"
-            android:text="Type"
+            android:text="Status"
             android:gravity="center_horizontal"
             android:textColor="#ff6e6e6e"
             android:textSize="17sp"

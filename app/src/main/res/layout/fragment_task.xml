@@ -61,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1.5dp"
-                android:text="the product partners will be handled by the box platform and all data will be stored in the cloud"
+                android:text="the product partners will be handled by the kay platform and all data will be stored in the cloud"
                 android:textColor="#ff000000"
                 android:textSize="11sp"
                 app:layout_constraintTop_toBottomOf="@id/txt1" />
@@ -215,7 +215,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="6dp"
-                            android:text="@string/taskmontante"
+                            android:text="Virtual assets"
                             android:textColor="#000000"
                             android:textSize="14sp"
                             app:layout_constraintBottom_toBottomOf="@id/imgjb2"
@@ -242,7 +242,7 @@
                             android:gravity="bottom"
                             android:includeFontPadding="false"
                             android:lineSpacingExtra="0dp"
-                            android:text="100 "
+                            android:text="2000"
                             android:textColor="#000000"
                             android:textSize="23sp"
                             app:layout_constraintLeft_toRightOf="@id/txthb2"
@@ -305,6 +305,8 @@
                     app:layout_constraintTop_toBottomOf="@+id/linaa"
                     android:orientation="vertical"
                     android:layout_height="wrap_content">
+
+
                     <LinearLayout
                         android:id="@+id/linwd"
                         android:layout_width="wrap_content"
@@ -327,7 +329,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="3dp"
-                            android:text="Withdrawal "
+                            android:text="withdraw"
                             android:textColor="#ff000000"
                             android:textSize="12sp" />
                         <ImageView
@@ -348,7 +350,7 @@
                         android:layout_marginRight="20dp"
                         android:layout_marginTop="7dp"
                         android:gravity="center_vertical"
-                        android:background="@drawable/drawable_wallet_wd3"
+                        android:background="@drawable/drawable_wallet_wd2"
                         android:layout_height="25dp">
                         <ImageView
 
@@ -361,7 +363,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="3dp"
-                            android:text="Recharge "
+                            android:text="recharge"
                             android:textColor="#ff000000"
                             android:textSize="12sp" />
                         <ImageView
@@ -373,7 +375,6 @@
                             android:layout_marginRight="6dp"
                             android:layout_height="5.75dp"/>
                     </LinearLayout>
-
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 

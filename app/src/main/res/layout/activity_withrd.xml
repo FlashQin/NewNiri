@@ -121,7 +121,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginTop="14dp"
                         android:background="@null"
-                        android:hint="2-50000R$"
+                        android:hint="2-50000₦"
                         android:textColor="#ffd7d7d7"
                         android:textSize="15sp" />
 
@@ -645,14 +645,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="16dp"
                 android:lineSpacingExtra="5dp"
-                android:text="*the withdrawal will be received the next day:T+1;\n**Membros de diferentes níveis precisam pagar uma taxa de retirada para a  plataforma：\n
-*Nível 0 - 15%\n
-*Nível 1 - 15%\n
-*Nível 2 - 12%\n
-*Nível 3 - 12%\n
-*Nível 4 - 10%\n
-*Nível 5 - 10%\n
-*Nível 6 - 6%\n"
+                android:text="* the withdrawal will be received the next day:T+1;\n* Each level of membership requires different withdrawal fees:
+ Level1-15%, Level2-14%, Level3-13%, Level4-12%, Level5-11%, Level6-10%,"
                 android:textColor="#ff000000"
                 android:textSize="12sp" />
 

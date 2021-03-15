@@ -369,7 +369,7 @@ public class MainActivity extends BaseActivity {
 
                             String code = "" + CommonUtils.getVersionName(MainActivity.this);
                             if (code.equals(homeListBean.getBody().getData().getVersion())) {//无更新
-                                initNotice();
+                               // initNotice();
                                 // initSpecDialogNoNew();
                             } else {//更新
 

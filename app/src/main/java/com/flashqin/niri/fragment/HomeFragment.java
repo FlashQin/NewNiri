@@ -81,7 +81,7 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void shareContent() {
-        String link = "https://h5.amazoncash.vip/register?code=" + CommonUtils.ShareCode;
+        String link = "https://h5.kaymu.vip/register?code=" + CommonUtils.ShareCode;
 
         Intent share_intent = new Intent();
 
@@ -89,11 +89,11 @@ public class HomeFragment extends BaseFragment {
 
         share_intent.setType("text/plain");
 
-        share_intent.putExtra(Intent.EXTRA_SUBJECT, "compartilhar");
+        share_intent.putExtra(Intent.EXTRA_SUBJECT, "Share");
 
         share_intent.putExtra(Intent.EXTRA_TEXT, link);
 
-        share_intent = Intent.createChooser(share_intent, "compartilhar");
+        share_intent = Intent.createChooser(share_intent, "Share");
 
         startActivity(share_intent);
     }

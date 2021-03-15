@@ -26,13 +26,39 @@
 
                 app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="How to be a good leader?"
-                    android:textColor="#ff000000"
-                    android:textSize="21sp"
-                    android:textStyle="bold" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="How to be a good leader?"
+                        android:textColor="#ff000000"
+                        android:textSize="21sp"
+                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:id="@+id/linexit"
+                        android:layout_width="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_alignParentRight="true"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sign out"
+                            android:layout_marginRight="3dp"
+                            android:textStyle="bold"
+                            android:textColor="#ff000000"
+                            android:textSize="14sp"
+                            />
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:background="@drawable/icon_tc"
+                            android:layout_height="16dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
 
             </LinearLayout>
             <LinearLayout
@@ -58,17 +84,17 @@
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="vocês"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
                         android:layout_marginTop="38dp"
+                        android:text="You"
                         android:textColor="#ffffffff"
                         android:textSize="10sp"
-                        />
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/txtamount"
@@ -417,7 +443,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="6dp"
                         android:lineSpacingExtra="7dp"
-                        android:text="Box will reward you with 10% of A's order revenue, 8% of B's  order revenue, 5% of C's  order revenue, 3% of D's  order revenue, 1% of E's  order revenue,"
+                        android:text="Kaycash will reward you with 10% of A's order revenue, 8% of B's  order revenue, 5% of C's  order revenue, 3% of D's  order revenue, 1% of E's  order revenue,"
                         android:textColor="#ff333333"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -476,7 +502,7 @@
                     android:layout_marginTop="13dp"
 
                     android:paddingRight="5dp"
-                    android:text="Invite a recharge member directly, you can get 350NGN immediately."
+                    android:text="Invite a recharge member directly, you can get 150NGN immediately."
                     android:textColor="#ff333333"
                     android:textSize="15sp"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -497,7 +523,7 @@
                     android:id="@+id/txtjiangnum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="40dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:paddingRight="20dp"
@@ -513,15 +539,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="3dp"
+
                     android:layout_marginBottom="10dp"
                     android:text=" ₦"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="23dp"
                     android:layout_marginTop="10dp"
                     android:textColor="#ff333333"
                     android:textSize="15sp"
                     app:layout_constraintBottom_toBottomOf="@id/txtjiangnum"
                     app:layout_constraintTop_toTopOf="@id/txtjiangnum"
-                    app:layout_constraintLeft_toRightOf="@id/txtjiangnum" />
+                    app:layout_constraintRight_toLeftOf="@id/txtjiangnum" />
                 <TextView
                     android:layout_width="match_parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtjiangnum"

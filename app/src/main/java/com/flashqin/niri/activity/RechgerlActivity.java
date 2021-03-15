@@ -24,6 +24,7 @@ import com.flashqin.niri.bean.BaseBean;
 import com.flashqin.niri.bean.CanShuBean;
 import com.flashqin.niri.bean.IPBean;
 import com.flashqin.niri.bean.NewPayBean;
+import com.flashqin.niri.bean.NewPaySuccess;
 import com.flashqin.niri.bean.PayLinkeBean;
 import com.flashqin.niri.bean.RechargBean;
 import com.flashqin.niri.bean.WalletMoneyBean;
@@ -70,7 +71,7 @@ public class RechgerlActivity extends BaseActivity {
     private BaseQuickAdapter<RechargBean, BaseViewHolder> mOneAdapter;
     String ip = "", tongdao = "", amount = "500";
     List<RechargBean> rechargBeanList = new ArrayList<>();
-    String[] strName = {"100", "500", "2000", "8000", "20000", "100000"};
+    String[] strName = {"2000", "5000", "10000", "50000", "100000", "300000"};
 
     @Override
     public int getLayoutId() {
@@ -277,7 +278,7 @@ public class RechgerlActivity extends BaseActivity {
                     public void onNext(BaseBean baseBean) {
                         HideLoading();
                         if (baseBean.getHead().getCode() == 1) {
-//                            PayLinkeBean homeListBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), PayLinkeBean.class);
+                            NewPaySuccess homeListBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), NewPaySuccess.class);
 //                            Map<String, Object> map = new HashMap<String, Object>();
 //                            String json = createJsonString(map, "amount", homeListBean.getBody().getData().getAmount());
 //                            json = createJsonString(map, "appId", homeListBean.getBody().getData().getAppId());
@@ -297,7 +298,7 @@ public class RechgerlActivity extends BaseActivity {
 //                            json = "https://h5.kaymu.vip/pay.html?channel=" + homeListBean.getBody().getData().getChannel() + "&data=" + json;
 //
 //                            System.out.println("111111111///" + json);
-//                            Goto(WebActivity.class, "json", json);
+                          Goto(WebActivity.class, "json", homeListBean.getBody().getData().getOrder_data());
                             ToastUtils.showShort("Succse");
 
                         } else
@@ -371,14 +372,14 @@ public class RechgerlActivity extends BaseActivity {
                 }
                 if (edtaccount.getText().toString().trim().length() != 0) {
                     double money = Double.parseDouble(edtaccount.getText().toString().trim());
-                    if (money < 100) {
+                    if (money < 2000) {
 
                         ToastUtils.showShort("Withdrawal of at least 100N");
                         return;
                     }
                     if (money > 500000) {
 
-                        ToastUtils.showShort("The single maximum load is R$50000");
+                        ToastUtils.showShort("The single maximum load is 50000N");
                         return;
                     }
                 }

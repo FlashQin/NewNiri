@@ -143,8 +143,8 @@ public class WithdrawalActivity extends BaseActivity {
         ShowLoading();
         getUserMoney();
         initSpinner();
-        getCanshu();
-        getIP();
+//        getCanshu();
+//        getIP();
 
     }
 
@@ -198,7 +198,6 @@ public class WithdrawalActivity extends BaseActivity {
                 postMoney();
 
 
-
                 break;
             case R.id.txttab1:
                 tongdao = "913";
@@ -235,15 +234,20 @@ public class WithdrawalActivity extends BaseActivity {
                             ifsListBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), IFSListBean.class);
 
                             for (int i = 0; i < ifsListBean.getBody().getData().size(); i++) {
-                                strs.add(ifsListBean.getBody().getData().get(i).getName() );
+                                strs.add(ifsListBean.getBody().getData().get(i).getName());
                             }
                             spinnerKinds.attachDataSource(strs);
                             spinnerKinds.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
                                 @Override
                                 public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
                                     // This example uses String, but your type can be any
-                                    bankString = parent.getItemAtPosition(position).toString();
+                                    // bankString = parent.getItemAtPosition(position).toString();
 
+                                    for (int i = 0; i < ifsListBean.getBody().getData().size(); i++) {
+                                        if (i == position) {
+                                            bankString = ifsListBean.getBody().getData().get(i).getCode();
+                                        }
+                                    }
 
                                 }
                             });

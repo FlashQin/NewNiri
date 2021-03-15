@@ -61,10 +61,10 @@ public class GongziRecordActivity extends BaseActivity {
     @Override
     public void initView() {
 
-        ShowLoading();
-        txttitle.setText("Salário");
+        //ShowLoading();
+        txttitle.setText("Salary");
         initAdapter();
-        getList();
+        //getList();
     }
 
     public void initAdapter() {

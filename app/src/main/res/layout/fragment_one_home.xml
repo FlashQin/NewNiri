@@ -27,18 +27,128 @@
 
 
                     android:layout_height="500dp"/>
-                <ImageView
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/connn"
                     android:layout_width="match_parent"
-                    android:background="@drawable/img_home_top"
+                    android:layout_height="113dp"
                     android:layout_marginLeft="40dp"
-                    android:layout_marginRight="40dp"
-                    android:layout_marginTop="85dp"
-                    android:layout_height="143dp"/>
+                    android:layout_marginTop="80dp"
+                    android:layout_marginRight="40dp">
+
+                    <TextView
+                        android:id="@+id/txt1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kay"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/view1"
+                        android:layout_width="100dp"
+                        android:layout_height="2dp"
+                        android:background="#000000"
+                        app:layout_constraintBottom_toBottomOf="@id/txt1"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/txt1" />
+
+                    <View
+                        android:id="@+id/view2"
+                        android:layout_width="100dp"
+                        android:layout_height="2dp"
+                        android:background="#000000"
+                        app:layout_constraintBottom_toBottomOf="@id/txt1"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/txt1" />
+
+                    <View
+                        android:id="@+id/view3"
+                        android:layout_width="2dp"
+                        android:layout_height="143dp"
+                        android:background="#000000"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/view2" />
+
+                    <View
+                        android:id="@+id/view4"
+                        android:layout_width="2dp"
+                        android:layout_height="143dp"
+                        android:background="#000000"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/view1" />
+
+                    <View
+                        android:id="@+id/view5"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#000000"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New"
+                        android:textColor="#000000"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txt1" />
+
+                    <TextView
+                        android:id="@+id/txt3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="e-commerce social"
+                        android:textColor="#000000"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txt2" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/connn"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="4.5dp"
+                        android:layout_height="4.5dp"
+                        android:background="@drawable/shape_blackyuan" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="2021"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="4.5dp"
+                        android:layout_height="4.5dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/shape_blackyuan" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:orientation="vertical"
-                    android:layout_marginTop="285dp"
+                    android:layout_marginTop="255dp"
                     android:layout_height="match_parent">
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -60,7 +170,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="5dp"
-                            android:text="Amazon Cash"
+                            android:text="Kay Cash"
                             android:textColor="#ffffffff"
                             android:textSize="15sp"
                             app:layout_constraintLeft_toLeftOf="parent"
@@ -76,7 +186,7 @@
                             android:lineSpacingExtra="10dp"
                             android:maxLines="3"
                             android:paddingBottom="12dp"
-                            android:text="Amazon Cash is a company that promotes Amazon Stores, increases store exposure, and provides a full social promotion service for stores. Everyone can sign up for a membership in Amazon's e-commerce mini-app for free. Learn to understand the work tasks of members, according to the actual situation to become an effective member, can put forward requests every day. No need for restock and delivery, you can get daily discounts from traders."
+                            android:text="Kay Cash is a company that promotes Kay Stores, increases store exposure, and provides a full social promotion service for stores. Everyone can sign up for a membership in Kay's e-commerce mini-app for free. Learn to understand the work tasks of members, according to the actual situation to become an effective member, can put forward requests every day. No need for restock and delivery, you can get daily discounts from traders."
                             android:textColor="#ff000000"
                             android:textSize="13sp"
                             app:layout_constraintLeft_toLeftOf="parent"
@@ -142,7 +252,7 @@
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="5dp"
                             android:lineSpacingExtra="10dp"
-                            android:text="What is Amazon's social\n electronic currency trading\n platform like?"
+                            android:text="What is Kay's social\n electronic currency trading\n platform like?"
                             android:textColor="#000000"
                             android:textSize="15sp"
                             android:textStyle="bold"
@@ -159,7 +269,7 @@
                             android:lineSpacingExtra="10dp"
                             android:maxLines="3"
                             android:paddingBottom="12dp"
-                            android:text='Amazon Cash is a social e-commerce platform for "sharing". It is the official strategic partner of Amazon. Based on a large number of Amazon merchants, he chose high-quality global products and believed that social sharing was the main product. This increased the merchant’s visibility on the Amazon platform and attracted traffic at the same time. Store rating, merchants can get more customers, and members and platforms can get merchant discounts.'
+                            android:text='Kay Cash is a social e-commerce platform for "sharing". It is the official strategic partner of Kay. Based on a large number of Kay merchants, he chose high-quality global products and believed that social sharing was the main product. This increased the merchant’s visibility on the Kay platform and attracted traffic at the same time. Store rating, merchants can get more customers, and members and platforms can get merchant discounts.'
                             android:textColor="#ff000000"
                             android:textSize="13sp"
                             app:layout_constraintLeft_toLeftOf="parent"
@@ -212,7 +322,7 @@
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="5dp"
                             android:lineSpacingExtra="10dp"
-                            android:text="How to make money with\n Amazon Social Cash\n e-commerce"
+                            android:text="How to make money with\n Kay Social Cash\n e-commerce"
                             android:textColor="#000000"
                             android:textSize="15sp"
                             android:textStyle="bold"
@@ -277,7 +387,7 @@
 
                                 android:layout_marginLeft="12dp"
 
-                                android:text="Operating hours: 9:00AM-6:PM
+                                android:text="Operating hours: 9:00AM-6:00PM
 "
 
                                 android:textColor="#000000"
@@ -306,7 +416,7 @@
                                 android:layout_marginLeft="12dp"
 
 
-                                android:text="Consumer hotline: +234 "
+                                android:text="Consumer hotline: +234 8074644453"
 
                                 android:textColor="#000000"
                                 android:textSize="14sp"

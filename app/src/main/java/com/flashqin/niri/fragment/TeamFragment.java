@@ -11,22 +11,29 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.alibaba.fastjson.JSONObject;
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
+import com.blankj.utilcode.util.Utils;
 import com.flashqin.niri.R;
+import com.flashqin.niri.activity.LoginActivity;
 import com.flashqin.niri.base.BaseFragment;
 import com.flashqin.niri.bean.BaseBean;
 import com.flashqin.niri.bean.NewTeamBean;
 import com.flashqin.niri.bean.TeamMoneyBean;
 import com.flashqin.niri.bean.UserMoneyDataBean;
 import com.flashqin.niri.net.BaseObserver;
+import com.flashqin.niri.utlis.ACache;
 import com.flashqin.niri.utlis.CommonUtils;
 import com.rxjava.rxlife.RxLife;
 
+import net.qiujuer.genius.kit.handler.Run;
 import net.qiujuer.genius.ui.widget.Button;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import io.reactivex.schedulers.Schedulers;
 import rxhttp.wrapper.param.RxHttp;
+
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 
 public class TeamFragment extends BaseFragment {
 
@@ -87,6 +94,8 @@ public class TeamFragment extends BaseFragment {
     TextView dsf;
     @BindView(R.id.dfsgsd)
     ConstraintLayout dfsgsd;
+    @BindView(R.id.linexit)
+    LinearLayout linexit;
 
     @Override
     protected int getLayoutId() {
@@ -118,7 +127,7 @@ public class TeamFragment extends BaseFragment {
         //getMenberInfoData();
 
         getMoney();
-        String link = "https://h5.amazoncash.vip\n/register?code=" + CommonUtils.ShareCode;
+        String link = "https://h5.kaymu.vip\n/register?code=" + CommonUtils.ShareCode;
         txtlink.setText(link);
     }
 
@@ -256,24 +265,36 @@ public class TeamFragment extends BaseFragment {
 
         share_intent.setType("text/plain");
 
-        share_intent.putExtra(Intent.EXTRA_SUBJECT, "compartilhar");
+        share_intent.putExtra(Intent.EXTRA_SUBJECT, "Share");
 
         share_intent.putExtra(Intent.EXTRA_TEXT, link);
 
-        share_intent = Intent.createChooser(share_intent, "compartilhar");
+        share_intent = Intent.createChooser(share_intent, "Share");
 
         startActivity(share_intent);
     }
 
-    @OnClick({R.id.btninvite, R.id.txtlink})
+    @OnClick({R.id.btninvite, R.id.txtlink, R.id.linexit})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btninvite:
                 shareContent();
                 break;
             case R.id.txtlink:
-                ToastUtils.showShort("Copy Succse");
-                CommonUtils.copyToClipboard(getActivity(),txtlink.getText().toString());
+                ToastUtils.showShort("Copy Success");
+                CommonUtils.copyToClipboard(getActivity(), txtlink.getText().toString());
+                break;
+            case R.id.linexit:
+
+
+                Run.onUiAsync(() -> {
+                    ACache.get(Utils.getApp()).remove("USER_BEAN");
+                    SPUtils.getInstance().remove("TOKEN");
+                    SPUtils.getInstance().remove("id");
+                });
+                // RxBus.getDefault().post("", "Exit");
+                Goto(LoginActivity.class, FLAG_ACTIVITY_CLEAR_TOP | FLAG_ACTIVITY_CLEAR_TASK);
+                getActivity().finish();
                 break;
         }
     }
