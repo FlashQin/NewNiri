@@ -121,7 +121,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginTop="14dp"
                         android:background="@null"
-                        android:hint="2-50000₦"
+                        android:hint="100-50000₦"
                         android:textColor="#ffd7d7d7"
                         android:textSize="15sp" />
 

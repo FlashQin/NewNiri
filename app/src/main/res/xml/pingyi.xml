@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+5         startOffset：动画开始前的延迟时间
+6         interpolator：加速器用来设置一些平移的动画效果
+7         fromXDelta：X左边的初始位置
+8         toXDelta：X左边的结束位置
+9         fromYDelta：Y坐标的初始位置
+10         toYDelta：Y坐标的结束位置
+11     -->
+    <translate
+        android:duration="2000"
+        android:fromXDelta="0"
+        android:fromYDelta="-200"
+        android:interpolator="@android:anim/accelerate_interpolator"
+        android:repeatCount="2"
+        android:startOffset="@android:integer/config_longAnimTime"
+        android:toXDelta="0"
+        android:toYDelta="800" />
+</set>

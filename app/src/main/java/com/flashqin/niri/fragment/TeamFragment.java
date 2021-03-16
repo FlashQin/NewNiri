@@ -257,7 +257,7 @@ public class TeamFragment extends BaseFragment {
     }
 
     private void shareContent() {
-        String link = "https://h5.amazoncash.vip/register?code=" + CommonUtils.ShareCode;
+        String link = "https://h5.kaymu.vip/register?code=" + CommonUtils.ShareCode;
 
         Intent share_intent = new Intent();
 

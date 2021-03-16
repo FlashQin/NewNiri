@@ -5,16 +5,30 @@
 
     android:orientation="vertical">
 
-    <ImageView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="@drawable/bg_top_go" />
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="@drawable/bg_top_go" />
+
+        <ImageView
+            android:id="@+id/imgmove"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/menu_home" />
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:layout_marginBottom="45dp"
-        android:background="@drawable/drawable_suggst_onebig"
+
+        android:background="@drawable/drawable_ban"
         android:layout_alignParentBottom="true"
         android:layout_height="wrap_content">
 
@@ -22,6 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Get order"
+
+            android:layout_marginTop="20dp"
             android:textColor="#ff333333"
             android:textSize="19sp" />
 
@@ -30,6 +46,11 @@
             android:layout_height="wrap_content"
             android:text="Matching the goods with merchants"
             android:textColor="#ff666666"
+            android:textSize="16sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+
             android:textSize="16sp" />
     </LinearLayout>
 </LinearLayout>

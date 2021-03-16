@@ -126,8 +126,7 @@ public class ForgetFundPassActivity extends BaseActivity {
                     return;
                 }
                 if (edtsms.getText().toString().length() == 0) {
-                    ToastUtils.showShort
-                            ("SMS verification code");
+                    ToastUtils.showShort("SMS verification code");
                     return;
                 }
                 if (edtpassword.getText().toString().length() == 0) {
@@ -156,9 +155,8 @@ public class ForgetFundPassActivity extends BaseActivity {
                         HideLoading();
                         if (baseBean.getHead().getCode() == 1) {
 
-                            ToastUtils.showShort("Sucess");
+                            ToastUtils.showShort("Success");
                             finish();
-
                         } else
                             ToastUtils.showShort(baseBean.getHead().getMessage());
                     }

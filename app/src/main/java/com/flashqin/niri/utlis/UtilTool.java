@@ -287,10 +287,9 @@ public class UtilTool {
 
             //   hours += days * 24;
 
-            if (days < 2) {
-                if ((hours * 24 * 60 + minutes * 60 + second) < (24 * 24 + minutes * 60 + 60)) {
-                    return true;
-                }
+
+            if (((hours + days * 24)*60*60 + minutes * 60 + second) < (24 * 60*60 + minutes * 60 + 60)) {//24小时以内
+                return true;
             } else {
                 return false;
             }

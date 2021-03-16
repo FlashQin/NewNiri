@@ -3,6 +3,9 @@ package com.flashqin.niri.fragment;
 import android.os.Handler;
 import android.view.Gravity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -32,6 +35,7 @@ import com.flashqin.niri.bean.TaskBean;
 import com.flashqin.niri.bean.UserMoneyDataBean;
 import com.flashqin.niri.net.BaseObserver;
 import com.flashqin.niri.utlis.UtilTool;
+import com.flashqin.niri.utlis.Utils;
 import com.marquee.dingrui.marqueeviewlib.MarqueeView;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
@@ -102,8 +106,9 @@ public class TaskFragment extends BaseFragment {
     //跑马灯数据
     List<String> messages = new ArrayList<>();
     TaskBean taskBean;
-    int userlv = 0, oderNum = 0;
+    int userlv = 0, oderNum = 0,oderShuaNum=0;
     String resgerData = "";
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_task;
@@ -135,6 +140,7 @@ public class TaskFragment extends BaseFragment {
 
         initAadpter();
         initOverDialog();
+
         initChazhaoDialog();
         initLockDialog();
         getMessageList();
@@ -158,10 +164,10 @@ public class TaskFragment extends BaseFragment {
 
                                 userlv = userMoneyDataBean.getBody().getData().getLevel();
                                 txtrenum.setText(userMoneyDataBean.getBody().getData().getTodayEarnings() + "");
-                                txtxt.setText(userMoneyDataBean.getBody().getData().getTodayTradeTimes() + "/20");
-                                oderNum = userMoneyDataBean.getBody().getData().getTodayTradeTimes();
-                                txtlv.setText("Level "+userMoneyDataBean.getBody().getData().getLevel());
+                                oderShuaNum=userMoneyDataBean.getBody().getData().getTodayTradeTimes();
+                                txtlv.setText("Level " + userMoneyDataBean.getBody().getData().getLevel());
                                 resgerData = userMoneyDataBean.getBody().getData().getRegisterDate();
+                                // resgerData="2021-03-15 17:40:11";
                                 getDataList();
                             } catch (NullPointerException e) {
 
@@ -207,12 +213,29 @@ public class TaskFragment extends BaseFragment {
                         txtname.setText(item.getDesc());
 
                         txtmoney.setText(item.getBalanceLowerLimit() + "");
-                        if (item.getId()==0){
+                        if (item.getId() == 0) {
+
                             txtmoney.setText("2000" + "");
 
                         }
                         if (userlv == item.getId()) {
-                            btnsure.setText("Get order");
+                            oderNum=item.getTradeTimesLimit();
+                            txtxt.setText(oderShuaNum + "/"+oderNum);
+
+                            if (userlv == 0) {
+                                //不用管用户等级，只要是0等级的商品，只有当天能刷
+                                if (resgerData.substring(0, 10).equals(UtilTool.gettimenow().substring(0, 10))) {
+                                    btnsure.setText("Get order");
+                                    btnsure.setBackgroundResource(R.drawable.drawable_taskitem2);
+                                } else {
+                                    btnsure.setText("Locked");
+                                    btnsure.setBackgroundResource(R.drawable.drawable_taskitem3);
+                                }
+                            } else {
+                                btnsure.setText("Get order");
+                                btnsure.setBackgroundResource(R.drawable.drawable_taskitem2);
+                            }
+
                         } else {
                             btnsure.setText("Locked");
                             btnsure.setBackgroundResource(R.drawable.drawable_taskitem3);
@@ -221,16 +244,17 @@ public class TaskFragment extends BaseFragment {
                             @Override
                             public void onClick(View v) {
                                 if (userlv == item.getId()) {
-                                    if (userlv==0 && UtilTool.getTimeRight(resgerData, UtilTool.gettimenow()) == false) {
+                                    if (userlv == 0 && !resgerData.substring(0, 10).equals(UtilTool.gettimenow().substring(0, 10))) {
                                         //不用管用户等级，只要是0等级的商品，只有当天能刷
                                         dialog_lock.show();
                                         return;
                                     }
-                                    if (oderNum >= 20) {
+                                    if (oderShuaNum >= oderNum) {
                                         dialog_over.show();
                                         return;
                                     }
                                     dialog_chazhao.show();
+
                                     new Handler().postDelayed(new Runnable() {
                                         public void run() {
                                             dialog_chazhao.dismiss();
@@ -255,7 +279,6 @@ public class TaskFragment extends BaseFragment {
         };
         // mOneAdapter.openLoadAnimation(BaseQuickAdapter.SCALEIN);
         rec1.setAdapter(mOneAdapter);
-
 
 
     }
@@ -308,7 +331,6 @@ public class TaskFragment extends BaseFragment {
                             mOneAdapter.setNewData(taskBean.getBody().getData());
 
 
-
                         } else
 
                             ToastUtils.showShort(baseBean.getHead().getMessage());
@@ -336,7 +358,12 @@ public class TaskFragment extends BaseFragment {
                             getMenberInfoData();
                             //getNoticeList();
                             DanInfoBean danInfoBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), DanInfoBean.class);
-                            initSuccDialog(danInfoBean);
+                            new Handler().postDelayed(new Runnable() {
+                                public void run() {
+                                    initSuccDialog(danInfoBean);
+
+                                }
+                            }, 500);
 
 
                         }
@@ -454,6 +481,20 @@ public class TaskFragment extends BaseFragment {
                 .setOverlayBackgroundResource(R.color.dialog_overlay_bg)
                 .create();
 
+//        AnimationSet set = new AnimationSet(true);
+//        ImageView img = (ImageView) viewHolder.getInflatedView().findViewById(R.id.imgmove);
+//        //初始化一个平移动画使用的是TranslateAnimation类
+//        //构造方法的参数分别是fromXDelta，toXDelta,fromYDelta,toYDelta
+//        Animation animation = new TranslateAnimation(100.0f, 100.0f, 50.0f, 0f);
+//        //动画的持续时间
+//        animation.setDuration(2000);
+//        //执行次数，不包括第一次
+//        animation.setRepeatCount(2);
+//        //设置加速器要实现的动画效果
+//        animation.setInterpolator(getActivity(), android.R.anim.bounce_interpolator);
+//        img.clearAnimation();
+//        img.startAnimation(animation);
+
 
     }
 
@@ -497,7 +538,7 @@ public class TaskFragment extends BaseFragment {
             @Override
             public void onClick(View view) {
                 dialog_succ.dismiss();
-                if (oderNum >= 20) {
+                if (oderShuaNum >= oderNum) {
                     new Handler().postDelayed(new Runnable() {
                         public void run() {
 
@@ -513,7 +554,7 @@ public class TaskFragment extends BaseFragment {
             @Override
             public void onClick(View view) {
                 dialog_succ.dismiss();
-                if (oderNum >= 20) {
+                if (oderShuaNum >= oderNum) {
                     new Handler().postDelayed(new Runnable() {
                         public void run() {
 

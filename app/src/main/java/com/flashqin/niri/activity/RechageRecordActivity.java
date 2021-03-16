@@ -110,15 +110,18 @@ public class RechageRecordActivity extends BaseActivity implements OnLoadMoreLis
                 txtname.setText(time1+" "+time2);
                 txtamount.setText(item.getAmount()+"₦");
 
-                switch (item.getStatus()){
+                switch (item.getStatus()) {
                     case 0:
-                        txttype.setText("Revisão pendente");
+                        txttype.setText("Applied");
                         break;
-                    case 1:
-                        txttype.setText("Sucesso");
+                    case 10:
+                        txttype.setText("Processing");
                         break;
-                    case 3:
-                        txttype.setText("Falhar");
+                    case 11:
+                        txttype.setText("succeeded");
+                        break;
+                    case 12:
+                        txttype.setText("failed");
                         break;
                 }
 

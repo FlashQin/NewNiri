@@ -86,13 +86,16 @@ public class WithdrawalRecordActivity extends BaseActivity {
                 txtamount.setText(item.getAmount() + "₦");
                 switch (item.getStatus()) {
                     case 0:
-                        txttype.setText("Revisão pendente");
+                        txttype.setText("Applied");
                         break;
-                    case 1:
-                        txttype.setText("success");
+                    case 10:
+                        txttype.setText("Processing");
                         break;
-                    case 3:
-                        txttype.setText("Falhar");
+                    case 11:
+                        txttype.setText("succeeded");
+                        break;
+                    case 12:
+                        txttype.setText("failed");
                         break;
                 }
 

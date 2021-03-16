@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="26dp"
-        android:text="Conselhos amigáveis "
+        android:text="Warm tips"
         android:textColor="#ff000000"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -38,6 +38,6 @@
         android:layout_marginBottom="26dp"
         android:background="@drawable/drawable_button_yuan_yellow"
         android:gravity="center"
-        android:text="sim "
+        android:text="OK"
         android:textColor="@color/white" />
 </LinearLayout>

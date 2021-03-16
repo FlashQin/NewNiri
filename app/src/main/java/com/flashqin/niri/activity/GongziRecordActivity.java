@@ -85,13 +85,16 @@ public class GongziRecordActivity extends BaseActivity {
                 txtamount.setText(item.getAmount() + "N");
                 switch (item.getStatus()) {
                     case 0:
-                        txttype.setText("Pending review");
+                        txttype.setText("Applied");
                         break;
-                    case 1:
-                        txttype.setText("Sucess");
+                    case 10:
+                        txttype.setText("Processing");
                         break;
-                    case 3:
-                        txttype.setText("Fail");
+                    case 11:
+                        txttype.setText("succeeded");
+                        break;
+                    case 12:
+                        txttype.setText("failed");
                         break;
                 }
 

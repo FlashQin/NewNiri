@@ -140,7 +140,7 @@ public class WithdrawalActivity extends BaseActivity {
 
         txttitle.setText("Withdrawal");
 
-        ShowLoading();
+       // ShowLoading();
         getUserMoney();
         initSpinner();
 //        getCanshu();
@@ -386,7 +386,7 @@ public class WithdrawalActivity extends BaseActivity {
         json = createJsonString(map, "bank_code", bankString);
 
         System.out.println("json----" + json);
-        RxHttp.postJson("https://pay.amazoncash.vip/v1/WebPayToPay/applyWithdraw")
+        RxHttp.postJson("https://pay.kaymu.vip/v1/orfeyt/applyWithdraw")
                 .setJsonParams(json)
                 .asObject(BaseBean.class)
                 .subscribeOn(Schedulers.io())
