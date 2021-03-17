@@ -141,7 +141,7 @@ public class TaskFragment extends BaseFragment {
         initAadpter();
         initOverDialog();
 
-        initChazhaoDialog();
+      //  initChazhaoDialog();
         initLockDialog();
         getMessageList();
 
@@ -256,7 +256,8 @@ public class TaskFragment extends BaseFragment {
                                         dialog_over.show();
                                         return;
                                     }
-                                    dialog_chazhao.show();
+                                    //dialog_chazhao.show();
+                                    initChazhaoDialog();
 
                                     new Handler().postDelayed(new Runnable() {
                                         public void run() {
@@ -484,19 +485,20 @@ public class TaskFragment extends BaseFragment {
                 .setOverlayBackgroundResource(R.color.dialog_overlay_bg)
                 .create();
 
-//        AnimationSet set = new AnimationSet(true);
-//        ImageView img = (ImageView) viewHolder.getInflatedView().findViewById(R.id.imgmove);
-//        //初始化一个平移动画使用的是TranslateAnimation类
-//        //构造方法的参数分别是fromXDelta，toXDelta,fromYDelta,toYDelta
-//        Animation animation = new TranslateAnimation(100.0f, 100.0f, 50.0f, 0f);
-//        //动画的持续时间
-//        animation.setDuration(2000);
-//        //执行次数，不包括第一次
-//        animation.setRepeatCount(2);
-//        //设置加速器要实现的动画效果
-//        animation.setInterpolator(getActivity(), android.R.anim.bounce_interpolator);
-//        img.clearAnimation();
-//        img.startAnimation(animation);
+        AnimationSet set = new AnimationSet(true);
+        ImageView img = (ImageView) viewHolder.getInflatedView().findViewById(R.id.imgmove);
+        //初始化一个平移动画使用的是TranslateAnimation类
+        //构造方法的参数分别是fromXDelta，toXDelta,fromYDelta,toYDelta
+        Animation animation = new TranslateAnimation(0f, 70.0f,0f, 20.0f);
+        //动画的持续时间
+        animation.setDuration(1000);
+        //执行次数，不包括第一次
+        animation.setRepeatCount(3);
+        //设置加速器要实现的动画效果
+        animation.setInterpolator(getActivity(), android.R.anim.bounce_interpolator);
+        img.clearAnimation();
+        img.startAnimation(animation);
+        dialog_chazhao.show();
 
 
     }
@@ -570,7 +572,8 @@ public class TaskFragment extends BaseFragment {
                 new Handler().postDelayed(new Runnable() {
                     public void run() {
 
-                        dialog_chazhao.show();
+                      //  dialog_chazhao.show();
+                        initChazhaoDialog();
 
                     }
                 }, 600);

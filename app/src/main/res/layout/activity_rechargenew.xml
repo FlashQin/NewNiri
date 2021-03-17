@@ -217,7 +217,59 @@
                     android:layout_marginTop="12dp"
                     android:background="#DFDFDF" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
+                android:layout_marginTop="26dp"
+
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="Bank type"
+
+                    android:textColor="#ff333333"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:id="@+id/relchoosebank"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp">
+
+                    <TextView
+                        android:id="@+id/txtbank"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="14dp"
+                        android:background="@null"
+                        android:hint="fidelity bank"
+                        android:textColor="#ffd7d7d7"
+                        android:textSize="15sp"
+                        android:visibility="gone" />
+
+                    <org.angmarch.views.NiceSpinner
+                        android:id="@+id/spinner_kinds"
+                        android:background="#FFFFFFFF"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="15dp"
+                    android:background="#DFDFDF" />
+            </LinearLayout>
             <net.qiujuer.genius.ui.widget.Button
                 android:id="@+id/btnsure"
                 android:layout_width="match_parent"

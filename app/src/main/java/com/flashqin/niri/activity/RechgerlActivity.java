@@ -25,13 +25,14 @@ import com.flashqin.niri.bean.CanShuBean;
 import com.flashqin.niri.bean.IPBean;
 import com.flashqin.niri.bean.NewPayBean;
 import com.flashqin.niri.bean.NewPaySuccess;
-import com.flashqin.niri.bean.PayLinkeBean;
 import com.flashqin.niri.bean.RechargBean;
 import com.flashqin.niri.bean.WalletMoneyBean;
 import com.flashqin.niri.net.BaseObserver;
-import com.flashqin.niri.utlis.CommonUtils;
 import com.gyf.immersionbar.ImmersionBar;
 import com.rxjava.rxlife.RxLife;
+
+import org.angmarch.views.NiceSpinner;
+import org.angmarch.views.OnSpinnerItemSelectedListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -68,8 +69,14 @@ public class RechgerlActivity extends BaseActivity {
     Button btnsure;
     @BindView(R.id.edtphone)
     EditText edtphone;
+    @BindView(R.id.txtbank)
+    TextView txtbank;
+    @BindView(R.id.spinner_kinds)
+    NiceSpinner spinnerKinds;
+    @BindView(R.id.relchoosebank)
+    RelativeLayout relchoosebank;
     private BaseQuickAdapter<RechargBean, BaseViewHolder> mOneAdapter;
-    String ip = "", tongdao = "", amount = "500";
+    String ip = "", tongdao = "", amount = "500", bancode = "100501";
     List<RechargBean> rechargBeanList = new ArrayList<>();
     String[] strName = {"2000", "5000", "10000", "50000", "100000", "300000"};
 
@@ -102,6 +109,25 @@ public class RechgerlActivity extends BaseActivity {
     }
 
     public void initAdapter() {
+        List<String> strs = new ArrayList<>();
+        strs.add("Bank");
+        strs.add("Opay");
+        spinnerKinds.attachDataSource(strs);
+        spinnerKinds.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
+            @Override
+            public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
+                // This example uses String, but your type can be any
+                // bankString = parent.getItemAtPosition(position).toString();
+
+                if (position==0){
+                    bancode="100501";
+                }else {
+                    bancode="100502";
+                }
+
+            }
+        });
+
         for (int i = 0; i < strName.length; i++) {
             RechargBean bean = new RechargBean();
             if (i == 0) {
@@ -263,6 +289,7 @@ public class RechgerlActivity extends BaseActivity {
         json = createJsonString(map, "pemail", edtemail.getText().toString());
         json = createJsonString(map, "pname", edtname.getText().toString());
         json = createJsonString(map, "phone", edtphone.getText().toString());
+        json = createJsonString(map, "obcode", bancode);
         // json = createJsonString(map, "email", edtemail.getText().toString().trim());//910，911通道毕传
         // if (tongdao.equals("910")) {
         // json = createJsonString(map, "contactName", edtname.getText().toString().trim());//910通道毕传
@@ -298,7 +325,7 @@ public class RechgerlActivity extends BaseActivity {
 //                            json = "https://h5.kaymu.vip/pay.html?channel=" + homeListBean.getBody().getData().getChannel() + "&data=" + json;
 //
 //                            System.out.println("111111111///" + json);
-                          Goto(WebActivity.class, "json", homeListBean.getBody().getData().getOrder_data());
+                            Goto(WebActivity.class, "json", homeListBean.getBody().getData().getOrder_data());
                             ToastUtils.showShort("Succse");
 
                         } else
