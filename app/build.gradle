@@ -11,8 +11,8 @@ android {
         applicationId "com.flashqin.niri"
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 115
-        versionName "1.1.5"
+        versionCode 111
+        versionName "1.1.1"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {

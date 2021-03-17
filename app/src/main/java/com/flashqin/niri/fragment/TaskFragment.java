@@ -106,7 +106,7 @@ public class TaskFragment extends BaseFragment {
     //跑马灯数据
     List<String> messages = new ArrayList<>();
     TaskBean taskBean;
-    int userlv = 0, oderNum = 0,oderShuaNum=0;
+    int userlv = 0, oderNum = 0, oderShuaNum = 0;
     String resgerData = "";
 
     @Override
@@ -164,10 +164,13 @@ public class TaskFragment extends BaseFragment {
 
                                 userlv = userMoneyDataBean.getBody().getData().getLevel();
                                 txtrenum.setText(userMoneyDataBean.getBody().getData().getTodayEarnings() + "");
-                                oderShuaNum=userMoneyDataBean.getBody().getData().getTodayTradeTimes();
+                                oderShuaNum = userMoneyDataBean.getBody().getData().getTodayTradeTimes();
                                 txtlv.setText("Level " + userMoneyDataBean.getBody().getData().getLevel());
                                 resgerData = userMoneyDataBean.getBody().getData().getRegisterDate();
                                 // resgerData="2021-03-15 17:40:11";
+                                if (userlv >= 4) {
+                                    txtmonum.setText("0");
+                                }
                                 getDataList();
                             } catch (NullPointerException e) {
 
@@ -219,8 +222,8 @@ public class TaskFragment extends BaseFragment {
 
                         }
                         if (userlv == item.getId()) {
-                            oderNum=item.getTradeTimesLimit();
-                            txtxt.setText(oderShuaNum + "/"+oderNum);
+                            oderNum = item.getTradeTimesLimit();
+                            txtxt.setText(oderShuaNum + "/" + oderNum);
 
                             if (userlv == 0) {
                                 //不用管用户等级，只要是0等级的商品，只有当天能刷
