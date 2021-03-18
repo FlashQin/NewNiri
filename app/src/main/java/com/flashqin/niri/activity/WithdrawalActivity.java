@@ -121,6 +121,7 @@ public class WithdrawalActivity extends BaseActivity {
     String ip = "", tongdao = "913", amount = "500", typeString = "CPF", bankString = "Itaú", leixingString = "Corrente";
     IFSListBean ifsListBean;
     BasePopupView popupView;
+    String urlcode = "https://pay.kaymu.vip/v1/orfeyt/bankcode/list", urlpost = "https://pay.kaymu.vip/v1/orfeyt/applyWithdraw";
 
     @Override
     public int getLayoutId() {
@@ -140,10 +141,9 @@ public class WithdrawalActivity extends BaseActivity {
 
         txttitle.setText("Withdrawal");
 
-       // ShowLoading();
+        // ShowLoading();
         getUserMoney();
-        initSpinner();
-//        getCanshu();
+        getCanshu();
 //        getIP();
 
     }
@@ -222,7 +222,54 @@ public class WithdrawalActivity extends BaseActivity {
     private void initSpinner() {
         List<String> strs = new ArrayList<>();
 
-        RxHttp.get("https://pay.kaymu.vip/v1/orfeyt/bankcode/list")
+        RxHttp.get(urlcode)
+                .asObject(BaseBean.class)
+                .subscribeOn(Schedulers.io())
+                .as(RxLife.asOnMain(this))
+                .subscribe(new BaseObserver<BaseBean>() {
+                    @Override
+                    public void onNext(BaseBean baseBean) {
+
+                        if (baseBean.getHead().getCode() == 1) {
+                            ifsListBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), IFSListBean.class);
+
+                            for (int i = 0; i < ifsListBean.getBody().getData().size(); i++) {
+                                strs.add(ifsListBean.getBody().getData().get(i).getName());
+                            }
+                            spinnerKinds.attachDataSource(strs);
+                            spinnerKinds.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
+                                @Override
+                                public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
+                                    // This example uses String, but your type can be any
+                                    // bankString = parent.getItemAtPosition(position).toString();
+
+                                    for (int i = 0; i < ifsListBean.getBody().getData().size(); i++) {
+                                        if (i == position) {
+                                            bankString = ifsListBean.getBody().getData().get(i).getCode();
+                                        }
+                                    }
+
+                                }
+                            });
+
+                        } else
+
+                            ToastUtils.showShort(baseBean.getHead().getMessage());
+                    }
+
+
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+                        HideLoading();
+                    }
+                });
+    }
+
+    private void initSpinner500() {
+        List<String> strs = new ArrayList<>();
+
+        RxHttp.get("https://pay.kaymu.vip/v1/sepro/bankcode/list")
                 .asObject(BaseBean.class)
                 .subscribeOn(Schedulers.io())
                 .as(RxLife.asOnMain(this))
@@ -307,25 +354,25 @@ public class WithdrawalActivity extends BaseActivity {
                             CanShuBean homeListBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), CanShuBean.class);
 
                             tongdao = homeListBean.getBody().getData().getPayoutChannel();
-                            if (tongdao.equals("913")) {//只显示913
-                                lin913.setVisibility(View.VISIBLE);
-                                txttab1.setVisibility(View.VISIBLE);
-                                lin914.setVisibility(View.GONE);
-                                txttab2.setVisibility(View.GONE);
+                            if (tongdao.equals("100")) {//只显示913
+
+                                urlcode = "https://pay.kaymu.vip/v1/orfeyt/bankcode/list";
+                                urlpost = "https://pay.kaymu.vip/v1/orfeyt/applyWithdraw";
+
                             }
-                            if (tongdao.equals("914")) {//只显示914
-                                lin914.setVisibility(View.VISIBLE);
-                                lin913.setVisibility(View.GONE);
-                                txttab1.setVisibility(View.GONE);
-                                txttab2.setVisibility(View.VISIBLE);
+                            if (tongdao.equals("500")) {//只显示914
+                                urlcode = "https://pay.kaymu.vip/v1/sepro/bankcode/list";
+                                urlpost = "https://pay.kaymu.vip/v1/sepro/payoutWithdraw";
                             }
-                            if (tongdao.equals("900")) {//同时显示913和914
-                                lin913.setVisibility(View.VISIBLE);
-                                lin914.setVisibility(View.VISIBLE);
-                                txttab1.setVisibility(View.VISIBLE);
-                                txttab2.setVisibility(View.VISIBLE);
-                            }
-                            getIP();
+                            initSpinner();
+
+//                            if (tongdao.equals("900")) {//同时显示913和914
+//                                lin913.setVisibility(View.VISIBLE);
+//                                lin914.setVisibility(View.VISIBLE);
+//                                txttab1.setVisibility(View.VISIBLE);
+//                                txttab2.setVisibility(View.VISIBLE);
+//                            }
+//                            getIP();
 
                         } else
 
@@ -386,7 +433,7 @@ public class WithdrawalActivity extends BaseActivity {
         json = createJsonString(map, "bank_code", bankString);
 
         System.out.println("json----" + json);
-        RxHttp.postJson("https://pay.kaymu.vip/v1/orfeyt/applyWithdraw")
+        RxHttp.postJson(urlpost)
                 .setJsonParams(json)
                 .asObject(BaseBean.class)
                 .subscribeOn(Schedulers.io())
