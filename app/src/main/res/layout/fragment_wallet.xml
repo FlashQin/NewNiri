@@ -3,18 +3,49 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#FF7B16"
+    android:background="#246FE9"
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:background="@drawable/bg_wallet"
         android:paddingTop="5dp"
         android:orientation="vertical"
-        android:layout_height="280dp">
+        android:layout_height="310dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/drawable_walltouming"
+            android:layout_height="28dp">
+
+            <TextView
+                android:id="@+id/txttabone"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="Bitcoin"
+                android:gravity="center_horizontal"
+                android:background="@drawable/drawable_wallone"
+                android:textColor="#ffffffff"
+                android:textSize="18sp"
+                />
+            <TextView
+                android:id="@+id/txttabtwo"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="NGN"
+                android:gravity="center_horizontal"
+                android:textColor="#ffffffff"
+                android:textSize="18sp"
+                />
+        </LinearLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
 
             android:layout_width="match_parent"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_height="wrap_content">
@@ -238,7 +269,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rec1"
             android:layout_width="match_parent"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_height="match_parent"/>

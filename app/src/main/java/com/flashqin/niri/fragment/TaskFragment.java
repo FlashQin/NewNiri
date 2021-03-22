@@ -23,6 +23,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.flashqin.niri.R;
 import com.flashqin.niri.activity.MemberSystemActivity;
+import com.flashqin.niri.activity.RechgeBaseActivity;
 import com.flashqin.niri.activity.RechgerlActivity;
 import com.flashqin.niri.activity.WithdrawalActivity;
 import com.flashqin.niri.adapter.SpacesItemNoHeader;
@@ -467,7 +468,7 @@ public class TaskFragment extends BaseFragment {
                 Goto(MemberSystemActivity.class);
                 break;
             case R.id.linre:
-                Goto(RechgerlActivity.class);
+                Goto(RechgeBaseActivity.class);
                 break;
             case R.id.linwd:
                 Goto(WithdrawalActivity.class);

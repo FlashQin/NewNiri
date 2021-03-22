@@ -75,8 +75,12 @@ public class WalletFragment extends BaseFragment {
     LinearLayout btnexit;
     @BindView(R.id.linexit)
     LinearLayout linexit;
+    @BindView(R.id.txttabone)
+    TextView txttabone;
+    @BindView(R.id.txttabtwo)
+    TextView txttabtwo;
     private BaseQuickAdapter<WallDataBean, BaseViewHolder> mOneAdapter;
-    String[] wallitem = {"Total\n top-up", "Total\n withdrawal", "Revenue\n amounts", "Commission\n amounts","salary"};//, "salary"
+    String[] wallitem = {"Total\n top-up", "Total\n withdrawal", "Revenue\n amounts", "Commission\n amounts", "salary"};//, "salary"
 
     List<String> moneylist = new ArrayList<>();
     List<WallDataBean> wallDataBeanList = new ArrayList<>();
@@ -104,7 +108,7 @@ public class WalletFragment extends BaseFragment {
 
         getMenberInfoData();
         getInfo();
-       // getNoticeList();
+        // getNoticeList();
     }
 
     @Override
@@ -239,7 +243,7 @@ public class WalletFragment extends BaseFragment {
                 });
     }
 
-    @OnClick({R.id.linwd, R.id.linre, R.id.linexit})
+    @OnClick({R.id.linwd, R.id.linre, R.id.linexit,R.id.txttabone, R.id.txttabtwo})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.linwd:
@@ -258,6 +262,14 @@ public class WalletFragment extends BaseFragment {
                 // RxBus.getDefault().post("", "Exit");
                 Goto(LoginActivity.class, FLAG_ACTIVITY_CLEAR_TOP | FLAG_ACTIVITY_CLEAR_TASK);
                 getActivity().finish();
+                break;
+            case R.id.txttabone:
+                txttabone.setBackgroundResource(R.drawable.drawable_wallone);
+                txttabtwo.setBackgroundResource(0);
+                break;
+            case R.id.txttabtwo:
+                txttabtwo.setBackgroundResource(R.drawable.drawable_wallone);
+                txttabone.setBackgroundResource(0);
                 break;
         }
     }

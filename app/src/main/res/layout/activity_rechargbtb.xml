@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar_two"></include>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="14dp"
+                android:background="@drawable/drawable_lin_rechgerbtb"
+                android:paddingLeft="21dp"
+                android:paddingTop="13dp"
+                android:paddingBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bitcoin wallet is equivalent to "
+                    android:textColor="#ffffffff"
+                    android:textSize="19sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2136.10"
+                    android:textColor="#ffffffff"
+                    android:textSize="36sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:text="NGN"
+                    android:textColor="#ffffffff"
+                    android:textSize="19sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/txtall" />
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/bg_tu_top"
+                    app:layout_constraintRight_toRightOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="19dp"
+                android:text="Recharge amount"
+                android:textColor="#ff404040"
+                android:textSize="15sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rec"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginRight="14dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginRight="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amount"
+                    android:textColor="#ff333333"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtaccount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@null"
+                    android:text="2000"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="#DFDFDF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginRight="15dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="#ff333333"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@null"
+                    android:hint="enter your contact name"
+                    android:textColor="#ffd7d7d7"
+                    android:textSize="15sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="#DFDFDF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginRight="15dp"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textColor="#ff333333"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtemail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@null"
+                    android:hint="enter your email"
+                    android:textColor="#ffd7d7d7"
+                    android:textSize="15sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="#DFDFDF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginRight="15dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone"
+                    android:textColor="#ff333333"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtphone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@null"
+                    android:hint="enter your phone number"
+                    android:inputType="number"
+                    android:textColor="#ffd7d7d7"
+                    android:textSize="15sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="#DFDFDF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="26dp"
+
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="Bank type"
+
+                    android:textColor="#ff333333"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:id="@+id/relchoosebank"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp">
+
+                    <TextView
+                        android:id="@+id/txtbank"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="14dp"
+                        android:background="@null"
+                        android:hint="fidelity bank"
+                        android:textColor="#ffd7d7d7"
+                        android:textSize="15sp"
+                        android:visibility="gone" />
+
+                    <org.angmarch.views.NiceSpinner
+                        android:id="@+id/spinner_kinds"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFFFF" />
+
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="15dp"
+                    android:background="#DFDFDF" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="18dp">
+
+                <ImageView
+                    android:id="@+id/imgg"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+                    android:background="@drawable/icon_f" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toRightOf="@id/imgg"
+                    android:text="Flow chart"
+                    android:textColor="#ff333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txtlern"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="Learn Paxful"
+                    android:textColor="#0371F8"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="31dp"
+                        android:background="@drawable/icon_f1"
+                        android:layout_height="31dp" />
+
+                    <TextView
+                        android:layout_width="75dp"
+                        android:layout_height="109dp"
+                        android:text="1.Create account"
+                        android:paddingTop="20dp"
+                        android:gravity="center_horizontal"
+                        android:background="@drawable/bg_f_block"
+                        android:textColor="#ff333333"
+                        android:textSize="12sp" />
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="6dp"
+                    android:background="@drawable/icon_yjt"
+                    android:layout_marginTop="12dp"
+                    android:layout_height="10dp"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="31dp"
+                        android:background="@drawable/icon_f1"
+                        android:layout_height="31dp" />
+
+                    <TextView
+                        android:layout_width="75dp"
+                        android:layout_height="109dp"
+                        android:text="2.Verify account"
+                        android:paddingTop="20dp"
+                        android:gravity="center_horizontal"
+                        android:background="@drawable/bg_f_block"
+                        android:textColor="#ff333333"
+                        android:textSize="12sp" />
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="6dp"
+                    android:background="@drawable/icon_yjt"
+                    android:layout_marginTop="12dp"
+                    android:layout_height="10dp"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="31dp"
+                        android:background="@drawable/icon_f1"
+                        android:layout_height="31dp" />
+
+                    <TextView
+                        android:layout_width="75dp"
+                        android:layout_height="109dp"
+                        android:text="3.Purchase equivalent bitcoins for upgrading members
+"
+                        android:paddingTop="20dp"
+                        android:gravity="center_horizontal"
+                        android:background="@drawable/bg_f_block"
+                        android:textColor="#ff333333"
+                        android:textSize="12sp" />
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="6dp"
+                    android:background="@drawable/icon_yjt"
+                    android:layout_marginTop="12dp"
+                    android:layout_height="10dp"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="31dp"
+                        android:background="@drawable/icon_f1"
+                        android:layout_height="31dp" />
+
+                    <TextView
+                        android:layout_width="75dp"
+                        android:layout_height="109dp"
+                        android:text="4.Return\n to the\n
+platform\n to pay"
+                        android:paddingTop="20dp"
+                        android:gravity="center_horizontal"
+                        android:background="@drawable/bg_f_block"
+                        android:textColor="#ff333333"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <net.qiujuer.genius.ui.widget.Button
+                android:id="@+id/btncreat"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/drawable_btncreat"
+                android:enabled="true"
+                android:gravity="center"
+                android:text="First Step: Create account"
+                android:textColor="#0371F8"
+                android:textSize="16sp" />
+            <net.qiujuer.genius.ui.widget.Button
+                android:id="@+id/btnsure"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/btn_bgbule"
+                android:enabled="true"
+                android:gravity="center"
+                android:text="Second Step: Paxful pay"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
