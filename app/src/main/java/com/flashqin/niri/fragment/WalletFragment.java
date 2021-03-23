@@ -5,6 +5,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,6 +19,7 @@ import com.flashqin.niri.R;
 import com.flashqin.niri.activity.GongziRecordActivity;
 import com.flashqin.niri.activity.LoginActivity;
 import com.flashqin.niri.activity.RechageRecordActivity;
+import com.flashqin.niri.activity.RechgeBaseActivity;
 import com.flashqin.niri.activity.RechgerlActivity;
 import com.flashqin.niri.activity.ShuadanRecordActivity;
 import com.flashqin.niri.activity.WithdrawalActivity;
@@ -79,6 +81,12 @@ public class WalletFragment extends BaseFragment {
     TextView txttabone;
     @BindView(R.id.txttabtwo)
     TextView txttabtwo;
+    @BindView(R.id.conbacpic)
+    ConstraintLayout conbacpic;
+    @BindView(R.id.linbacpic)
+    LinearLayout linbacpic;
+    @BindView(R.id.linbacbase)
+    LinearLayout linbacbase;
     private BaseQuickAdapter<WallDataBean, BaseViewHolder> mOneAdapter;
     String[] wallitem = {"Total\n top-up", "Total\n withdrawal", "Revenue\n amounts", "Commission\n amounts", "salary"};//, "salary"
 
@@ -243,14 +251,14 @@ public class WalletFragment extends BaseFragment {
                 });
     }
 
-    @OnClick({R.id.linwd, R.id.linre, R.id.linexit,R.id.txttabone, R.id.txttabtwo})
+    @OnClick({R.id.linwd, R.id.linre, R.id.linexit, R.id.txttabone, R.id.txttabtwo})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.linwd:
                 Goto(WithdrawalActivity.class);
                 break;
             case R.id.linre:
-                Goto(RechgerlActivity.class);
+                Goto(RechgeBaseActivity.class);
                 break;
             case R.id.linexit:
 
@@ -266,10 +274,16 @@ public class WalletFragment extends BaseFragment {
             case R.id.txttabone:
                 txttabone.setBackgroundResource(R.drawable.drawable_wallone);
                 txttabtwo.setBackgroundResource(0);
+                linbacbase.setBackgroundColor(getResources().getColor(R.color.color_wall_btb));
+                linbacpic.setBackgroundResource(R.drawable.bg_wallet);
+                conbacpic.setBackgroundResource(R.drawable.bg_qb_ngn);
                 break;
             case R.id.txttabtwo:
-                txttabtwo.setBackgroundResource(R.drawable.drawable_wallone);
+                txttabtwo.setBackgroundResource(R.drawable.drawable_walltwo);
                 txttabone.setBackgroundResource(0);
+                linbacbase.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                linbacpic.setBackgroundResource(R.drawable.bg_wallet2);
+                conbacpic.setBackgroundResource(R.drawable.btb);
                 break;
         }
     }

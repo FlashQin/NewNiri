@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linbacbase"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#246FE9"
     android:layout_height="match_parent">
     <LinearLayout
+        android:id="@+id/linbacpic"
         android:layout_width="match_parent"
         android:background="@drawable/bg_wallet"
         android:paddingTop="5dp"
@@ -151,6 +153,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/conbacpic"
             android:layout_width="match_parent"
 
             android:background="@drawable/bg_qb"
