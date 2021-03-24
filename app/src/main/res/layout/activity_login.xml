@@ -154,7 +154,7 @@
                 android:layout_marginLeft="11dp"
                 android:layout_marginTop="50dp"
                 android:layout_marginRight="11dp"
-                android:background="@drawable/drawable_button_yuan_yellow"
+                android:background="@drawable/drawable_usdtbtntwobule"
                 android:gravity="center"
                 android:text="Login"
                 android:textAllCaps="false"

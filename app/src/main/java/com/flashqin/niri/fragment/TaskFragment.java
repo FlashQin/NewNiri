@@ -36,7 +36,6 @@ import com.flashqin.niri.bean.TaskBean;
 import com.flashqin.niri.bean.UserMoneyDataBean;
 import com.flashqin.niri.net.BaseObserver;
 import com.flashqin.niri.utlis.UtilTool;
-import com.flashqin.niri.utlis.Utils;
 import com.marquee.dingrui.marqueeviewlib.MarqueeView;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
@@ -101,12 +100,22 @@ public class TaskFragment extends BaseFragment {
     ConstraintLayout connn;
     @BindView(R.id.linn)
     LinearLayout linn;
+    @BindView(R.id.txttabone)
+    TextView txttabone;
+    @BindView(R.id.txttabtwo)
+    TextView txttabtwo;
+
+
+    @BindView(R.id.linbacpic)
+    LinearLayout linbacpic;
+    @BindView(R.id.linbacbase)
+    LinearLayout linbacbase;
     private BaseQuickAdapter<List<TaskBean.BodyBean.DataBean>, BaseViewHolder> mOneAdapter;
     private BaseQuickAdapter<TaskBean.BodyBean.DataBean, BaseViewHolder> twoAdapter;
     private DialogPlus dialog_chazhao, dialog_lock, dialog_fail, dialog_succ, dialog_over;
     //跑马灯数据
     List<String> messages = new ArrayList<>();
-    TaskBean taskBean;
+    TaskBean taskBean, taskBTCBean;
     int userlv = 0, oderNum = 0, oderShuaNum = 0;
     String resgerData = "";
 
@@ -142,7 +151,7 @@ public class TaskFragment extends BaseFragment {
         initAadpter();
         initOverDialog();
 
-      //  initChazhaoDialog();
+        //  initChazhaoDialog();
         initLockDialog();
         getMessageList();
 
@@ -173,6 +182,7 @@ public class TaskFragment extends BaseFragment {
                                     txtmonum.setText("0");
                                 }
                                 getDataList();
+                                getDataListBTC();
                             } catch (NullPointerException e) {
 
                             }
@@ -333,8 +343,36 @@ public class TaskFragment extends BaseFragment {
                         if (baseBean.getHead().getCode() == 1) {
                             taskBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), TaskBean.class);
 
-                            mOneAdapter.setNewData(taskBean.getBody().getData());
 
+
+
+                        } else
+
+                            ToastUtils.showShort(baseBean.getHead().getMessage());
+                    }
+
+
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+                        //   HideLoading();
+                    }
+                });
+    }
+
+    public void getDataListBTC() {//读取列表
+
+        RxHttp.get("/v2/levels?type=1")
+                .asObject(BaseBean.class)
+                .subscribeOn(Schedulers.io())
+                .as(RxLife.asOnMain(this))
+                .subscribe(new BaseObserver<BaseBean>() {
+                    @Override
+                    public void onNext(BaseBean baseBean) {
+                        HideLoading();
+                        if (baseBean.getHead().getCode() == 1) {
+                            taskBTCBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), TaskBean.class);
+                            mOneAdapter.setNewData(taskBTCBean.getBody().getData());
 
                         } else
 
@@ -461,7 +499,7 @@ public class TaskFragment extends BaseFragment {
                 });
     }
 
-    @OnClick({R.id.linsystem, R.id.linre, R.id.linwd})
+    @OnClick({R.id.linsystem, R.id.linre, R.id.linwd, R.id.txttabone, R.id.txttabtwo})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.linsystem:
@@ -472,6 +510,22 @@ public class TaskFragment extends BaseFragment {
                 break;
             case R.id.linwd:
                 Goto(WithdrawalActivity.class);
+                break;
+            case R.id.txttabone:
+                txttabone.setBackgroundResource(R.drawable.drawable_wallone);
+                txttabtwo.setBackgroundResource(0);
+                linbacbase.setBackgroundColor(getResources().getColor(R.color.color_wall_btb));
+                linbacpic.setBackgroundResource(R.drawable.bg_wallet);
+                mOneAdapter.setNewData(taskBTCBean.getBody().getData());
+
+                break;
+            case R.id.txttabtwo:
+                txttabtwo.setBackgroundResource(R.drawable.drawable_walltwo);
+                txttabone.setBackgroundResource(0);
+                linbacbase.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                linbacpic.setBackgroundResource(R.drawable.bg_wallet2);
+                mOneAdapter.setNewData(taskBean.getBody().getData());
+
                 break;
         }
     }
@@ -490,7 +544,7 @@ public class TaskFragment extends BaseFragment {
         ImageView img = (ImageView) viewHolder.getInflatedView().findViewById(R.id.imgmove);
         //初始化一个平移动画使用的是TranslateAnimation类
         //构造方法的参数分别是fromXDelta，toXDelta,fromYDelta,toYDelta
-        Animation animation = new TranslateAnimation(0f, 70.0f,0f, 20.0f);
+        Animation animation = new TranslateAnimation(0f, 70.0f, 0f, 20.0f);
         //动画的持续时间
         animation.setDuration(1000);
         //执行次数，不包括第一次
@@ -573,7 +627,7 @@ public class TaskFragment extends BaseFragment {
                 new Handler().postDelayed(new Runnable() {
                     public void run() {
 
-                      //  dialog_chazhao.show();
+                        //  dialog_chazhao.show();
                         initChazhaoDialog();
 
                     }
@@ -652,4 +706,6 @@ public class TaskFragment extends BaseFragment {
 
         dialog_fail.show();
     }
+
+
 }

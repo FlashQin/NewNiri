@@ -396,20 +396,20 @@ public class RechgerlBTBActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.btnsure:
-                if (edtname.getText().toString().length() == 0) {
-
-                    ToastUtils.showShort("please input your name");
-                    return;
-                }
+//                if (edtname.getText().toString().length() == 0) {
+//
+//                    ToastUtils.showShort("please input your name");
+//                    return;
+//                }
                 if (edtemail.getText().toString().length() == 0) {
                     ToastUtils.showShort("please input your email");
                     return;
                 }
 
-                if (edtphone.getText().toString().length() == 0) {
-                    ToastUtils.showShort("please input right phone number");
-                    return;
-                }
+//                if (edtphone.getText().toString().length() == 0) {
+//                    ToastUtils.showShort("please input right phone number");
+//                    return;
+//                }
                 if (edtaccount.getText().toString().trim().length() != 0) {
                     double money = Double.parseDouble(edtaccount.getText().toString().trim());
                     if (money < 2000) {

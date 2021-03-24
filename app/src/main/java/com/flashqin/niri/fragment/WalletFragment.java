@@ -277,6 +277,9 @@ public class WalletFragment extends BaseFragment {
                 linbacbase.setBackgroundColor(getResources().getColor(R.color.color_wall_btb));
                 linbacpic.setBackgroundResource(R.drawable.bg_wallet);
                 conbacpic.setBackgroundResource(R.drawable.bg_qb_ngn);
+                conbacpic.setBackgroundResource(R.drawable.bg_qb_ngn);
+                img2.setBackgroundResource(R.drawable.icon_rsbtc);
+                txt3.setText("Bitcoin wallet is equivalent to ");
                 break;
             case R.id.txttabtwo:
                 txttabtwo.setBackgroundResource(R.drawable.drawable_walltwo);
@@ -284,6 +287,10 @@ public class WalletFragment extends BaseFragment {
                 linbacbase.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 linbacpic.setBackgroundResource(R.drawable.bg_wallet2);
                 conbacpic.setBackgroundResource(R.drawable.btb);
+                conbacpic.setBackgroundResource(R.drawable.btb);
+
+                img2.setBackgroundResource(R.drawable.icon_rs);
+                txt3.setText("NGN credit balance");
                 break;
         }
     }
