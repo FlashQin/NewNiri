@@ -92,6 +92,8 @@ public class WalletFragment extends BaseFragment {
 
     List<String> moneylist = new ArrayList<>();
     List<WallDataBean> wallDataBeanList = new ArrayList<>();
+    UserMoneyDataBean userMoneyDataBean, userMoneyDataBeanBTC;
+    WalletBaseBean danInfoBean, danInfoBeanBTC;
 
     @Override
     protected int getLayoutId() {
@@ -115,7 +117,9 @@ public class WalletFragment extends BaseFragment {
         super.onResume();
 
         getMenberInfoData();
+        getMenberInfoDataBTC();
         getInfo();
+        getInfoBTC();
         // getNoticeList();
     }
 
@@ -183,7 +187,43 @@ public class WalletFragment extends BaseFragment {
                     public void onNext(BaseBean baseBean) {
 
                         if (baseBean.getHead().getCode() == 1) {
-                            UserMoneyDataBean userMoneyDataBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), UserMoneyDataBean.class);
+                            userMoneyDataBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), UserMoneyDataBean.class);
+
+                            try {
+//                                txthi.setText("Hi " + userMoneyDataBean.getBody().getData().getName());
+//                                txtblance.setText(userMoneyDataBean.getBody().getData().getBalance() + "");
+//
+//                                txtid.setText("ID：" + userMoneyDataBean.getBody().getData().getMobile() + "");
+//                                txtlv.setText("Level " + userMoneyDataBean.getBody().getData().getLevel());
+                            } catch (NullPointerException e) {
+
+                            }
+
+                        } else
+
+                            ToastUtils.showShort(baseBean.getHead().getMessage());
+                    }
+
+
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+
+                    }
+                });
+    }
+
+    public void getMenberInfoDataBTC() {//读取个人概要数据:
+        RxHttp.get("/v1/members/" + SPUtils.getInstance().getString("id", "0") + "/info?type=1")
+                .asObject(BaseBean.class)
+                .subscribeOn(Schedulers.io())
+                .as(RxLife.asOnMain(this))
+                .subscribe(new BaseObserver<BaseBean>() {
+                    @Override
+                    public void onNext(BaseBean baseBean) {
+
+                        if (baseBean.getHead().getCode() == 1) {
+                            userMoneyDataBeanBTC = JSONObject.parseObject(JSONObject.toJSONString(baseBean), UserMoneyDataBean.class);
 
                             try {
                                 txthi.setText("Hi " + userMoneyDataBean.getBody().getData().getName());
@@ -221,14 +261,57 @@ public class WalletFragment extends BaseFragment {
                         if (baseBean.getHead().getCode() == 1) {
                             // getMenberInfoData();
                             //getNoticeList();
-                            wallDataBeanList.clear();
-                            WalletBaseBean danInfoBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), WalletBaseBean.class);
+                            //wallDataBeanList.clear();
 
-                            moneylist.add(danInfoBean.getBody().getData().getTotalRecharge() + "");
-                            moneylist.add(danInfoBean.getBody().getData().getTotalWithdraw() + "");
-                            moneylist.add(danInfoBean.getBody().getData().getTotalRevenue() + "");
-                            moneylist.add(danInfoBean.getBody().getData().getTotalCommission() + "");
-                            moneylist.add(danInfoBean.getBody().getData().getTotalSalary() + "");
+                            danInfoBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), WalletBaseBean.class);
+
+//                            moneylist.add(danInfoBean.getBody().getData().getTotalRecharge() + "");
+//                            moneylist.add(danInfoBean.getBody().getData().getTotalWithdraw() + "");
+//                            moneylist.add(danInfoBean.getBody().getData().getTotalRevenue() + "");
+//                            moneylist.add(danInfoBean.getBody().getData().getTotalCommission() + "");
+//                            moneylist.add(danInfoBean.getBody().getData().getTotalSalary() + "");
+//                            for (int i = 0; i < wallitem.length; i++) {
+//                                WallDataBean wallDataBean = new WallDataBean();
+//                                wallDataBean.setName(wallitem[i]);
+//                                wallDataBean.setMoney(moneylist.get(i));
+//                                wallDataBeanList.add(wallDataBean);
+//                            }
+//
+//                            mOneAdapter.setNewData(wallDataBeanList);
+
+                        }
+                        // ToastUtils.showShort(baseBean.getHead().getMessage());
+                    }
+
+
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+                        //   HideLoading();
+                    }
+                });
+    }
+
+    public void getInfoBTC() {//读取列表
+        RxHttp.get("v1/members/" + SPUtils.getInstance().getString("id", "0") + "/earnings?type=1")
+                .asObject(BaseBean.class)
+                .subscribeOn(Schedulers.io())
+                .as(RxLife.asOnMain(this))
+                .subscribe(new BaseObserver<BaseBean>() {
+                    @Override
+                    public void onNext(BaseBean baseBean) {
+                        //  HideLoading();
+                        if (baseBean.getHead().getCode() == 1) {
+                            // getMenberInfoData();
+                            //getNoticeList();
+                            //  wallDataBeanList.clear();
+                            danInfoBeanBTC = JSONObject.parseObject(JSONObject.toJSONString(baseBean), WalletBaseBean.class);
+
+                            moneylist.add(danInfoBeanBTC.getBody().getData().getTotalRecharge() + "");
+                            moneylist.add(danInfoBeanBTC.getBody().getData().getTotalWithdraw() + "");
+                            moneylist.add(danInfoBeanBTC.getBody().getData().getTotalRevenue() + "");
+                            moneylist.add(danInfoBeanBTC.getBody().getData().getTotalCommission() + "");
+                            moneylist.add(danInfoBeanBTC.getBody().getData().getTotalSalary() + "");
                             for (int i = 0; i < wallitem.length; i++) {
                                 WallDataBean wallDataBean = new WallDataBean();
                                 wallDataBean.setName(wallitem[i]);
@@ -280,6 +363,31 @@ public class WalletFragment extends BaseFragment {
                 conbacpic.setBackgroundResource(R.drawable.bg_qb_ngn);
                 img2.setBackgroundResource(R.drawable.icon_rsbtc);
                 txt3.setText("Bitcoin wallet is equivalent to ");
+                try {
+                    txthi.setText("Hi " + userMoneyDataBean.getBody().getData().getName());
+                    txtblance.setText(userMoneyDataBean.getBody().getData().getBalance() + "");
+
+                    txtid.setText("ID：" + userMoneyDataBean.getBody().getData().getMobile() + "");
+                    txtlv.setText("Level " + userMoneyDataBean.getBody().getData().getLevel());
+
+                    wallDataBeanList.clear();
+                    moneylist.clear();
+                    moneylist.add(danInfoBeanBTC.getBody().getData().getTotalRecharge() + "");
+                    moneylist.add(danInfoBeanBTC.getBody().getData().getTotalWithdraw() + "");
+                    moneylist.add(danInfoBeanBTC.getBody().getData().getTotalRevenue() + "");
+                    moneylist.add(danInfoBeanBTC.getBody().getData().getTotalCommission() + "");
+                    moneylist.add(danInfoBeanBTC.getBody().getData().getTotalSalary() + "");
+                    for (int i = 0; i < wallitem.length; i++) {
+                        WallDataBean wallDataBean = new WallDataBean();
+                        wallDataBean.setName(wallitem[i]);
+                        wallDataBean.setMoney(moneylist.get(i));
+                        wallDataBeanList.add(wallDataBean);
+                    }
+
+                    mOneAdapter.setNewData(wallDataBeanList);
+                } catch (NullPointerException e) {
+
+                }
                 break;
             case R.id.txttabtwo:
                 txttabtwo.setBackgroundResource(R.drawable.drawable_walltwo);
@@ -291,6 +399,32 @@ public class WalletFragment extends BaseFragment {
 
                 img2.setBackgroundResource(R.drawable.icon_rs);
                 txt3.setText("NGN credit balance");
+
+                try {
+                    txthi.setText("Hi " + userMoneyDataBeanBTC.getBody().getData().getName());
+                    txtblance.setText(userMoneyDataBeanBTC.getBody().getData().getBalance() + "");
+
+                    txtid.setText("ID：" + userMoneyDataBeanBTC.getBody().getData().getMobile() + "");
+                    txtlv.setText("Level " + userMoneyDataBeanBTC.getBody().getData().getLevel());
+
+                    wallDataBeanList.clear();
+                    moneylist.clear();
+                    moneylist.add(danInfoBean.getBody().getData().getTotalRecharge() + "");
+                    moneylist.add(danInfoBean.getBody().getData().getTotalWithdraw() + "");
+                    moneylist.add(danInfoBean.getBody().getData().getTotalRevenue() + "");
+                    moneylist.add(danInfoBean.getBody().getData().getTotalCommission() + "");
+                    moneylist.add(danInfoBean.getBody().getData().getTotalSalary() + "");
+                    for (int i = 0; i < wallitem.length; i++) {
+                        WallDataBean wallDataBean = new WallDataBean();
+                        wallDataBean.setName(wallitem[i]);
+                        wallDataBean.setMoney(moneylist.get(i));
+                        wallDataBeanList.add(wallDataBean);
+                    }
+
+                    mOneAdapter.setNewData(wallDataBeanList);
+                } catch (NullPointerException e) {
+
+                }
                 break;
         }
     }

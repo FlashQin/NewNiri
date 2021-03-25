@@ -347,7 +347,7 @@
 
                     <ImageView
                         android:layout_width="31dp"
-                        android:background="@drawable/icon_f1"
+                        android:background="@drawable/icon_f2"
                         android:layout_height="31dp" />
 
                     <TextView
@@ -374,7 +374,7 @@
 
                     <ImageView
                         android:layout_width="31dp"
-                        android:background="@drawable/icon_f1"
+                        android:background="@drawable/icon_f3"
                         android:layout_height="31dp" />
 
                     <TextView
@@ -402,7 +402,7 @@
 
                     <ImageView
                         android:layout_width="31dp"
-                        android:background="@drawable/icon_f1"
+                        android:background="@drawable/icon_f4"
                         android:layout_height="31dp" />
 
                     <TextView

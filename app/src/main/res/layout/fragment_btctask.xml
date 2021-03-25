@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:background="@color/colorPrimary"
+    android:background="#246FE9"
     android:descendantFocusability="blocksDescendants"
     android:layout_height="match_parent">
 
@@ -13,7 +13,7 @@
         android:id="@+id/linbacpic"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/bg_wallet2"
+        android:background="@drawable/bg_top_wabtc"
         android:layout_height="250dp">
         <LinearLayout
 
@@ -68,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Working area"
-                android:textColor="#ff000000"
+                android:textColor="#ffffff"
                 android:textSize="23sp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -105,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1.5dp"
                 android:text="the product partners will be handled by the kay platform and all data will be stored in the cloud"
-                android:textColor="#ff000000"
+                android:textColor="#ffffff"
                 android:textSize="11sp"
                 app:layout_constraintTop_toBottomOf="@id/txt1" />
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -437,7 +437,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec1"
         android:layout_width="match_parent"
-        android:layout_marginTop="5dp"
+
         android:paddingTop="5dp"
         android:background="#F3F3F3"
         android:overScrollMode="never"

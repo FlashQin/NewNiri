@@ -51,7 +51,28 @@
             android:textSize="@dimen/dp_home_bottomtxt"
             android:textColor="@color/color_home_bottomtxt" />
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_btc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/btc_selected" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="@string/meau_taskb"
+            android:textSize="@dimen/dp_home_bottomtxt"
+            android:textColor="@color/color_home_bottomtxt" />
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/ll_service"
         android:layout_width="wrap_content"

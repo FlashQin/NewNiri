@@ -23,6 +23,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.flashqin.niri.R;
 import com.flashqin.niri.activity.MemberSystemActivity;
+import com.flashqin.niri.activity.MemberSystemBTCActivity;
 import com.flashqin.niri.activity.RechgeBaseActivity;
 import com.flashqin.niri.activity.RechgerlActivity;
 import com.flashqin.niri.activity.WithdrawalActivity;
@@ -51,7 +52,7 @@ import butterknife.OnClick;
 import io.reactivex.schedulers.Schedulers;
 import rxhttp.wrapper.param.RxHttp;
 
-public class TaskFragment extends BaseFragment {
+public class TaskBTCFragment extends BaseFragment {
 
 
     @BindView(R.id.txt1)
@@ -121,7 +122,7 @@ public class TaskFragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_task;
+        return R.layout.fragment_btctask;
     }
 
 
@@ -159,7 +160,7 @@ public class TaskFragment extends BaseFragment {
     }
 
     public void getMenberInfoData() {//读取个人概要数据:
-        RxHttp.get("/v1/members/" + SPUtils.getInstance().getString("id", "0") + "/info")
+        RxHttp.get("/v1/members/" + SPUtils.getInstance().getString("id", "0") + "/info?type=1")
                 .asObject(BaseBean.class)
                 .subscribeOn(Schedulers.io())
                 .as(RxLife.asOnMain(this))
@@ -181,8 +182,8 @@ public class TaskFragment extends BaseFragment {
                                 if (userlv >= 4) {
                                     txtmonum.setText("0");
                                 }
-                                getDataList();
 
+                                getDataListBTC();
                             } catch (NullPointerException e) {
 
                             }
@@ -299,7 +300,7 @@ public class TaskFragment extends BaseFragment {
     }
 
     public void postXiadan(String lv) {//读取列表
-        RxHttp.postForm("/v1/members/" + SPUtils.getInstance().getString("id", "0") + "/orders/" + lv)
+        RxHttp.postForm("/v1/members/" + SPUtils.getInstance().getString("id", "0") + "/orders/" + lv+"?type=1")
                 .asObject(BaseBean.class)
                 .subscribeOn(Schedulers.io())
                 .as(RxLife.asOnMain(this))
@@ -330,9 +331,11 @@ public class TaskFragment extends BaseFragment {
                 });
     }
 
-    public void getDataList() {//读取列表
 
-        RxHttp.get("/v2/levels")
+
+    public void getDataListBTC() {//读取列表
+
+        RxHttp.get("/v2/levels?type=1")
                 .asObject(BaseBean.class)
                 .subscribeOn(Schedulers.io())
                 .as(RxLife.asOnMain(this))
@@ -341,11 +344,8 @@ public class TaskFragment extends BaseFragment {
                     public void onNext(BaseBean baseBean) {
                         HideLoading();
                         if (baseBean.getHead().getCode() == 1) {
-                            taskBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), TaskBean.class);
-
-                            mOneAdapter.setNewData(taskBean.getBody().getData());
-
-
+                            taskBTCBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), TaskBean.class);
+                            mOneAdapter.setNewData(taskBTCBean.getBody().getData());
 
                         } else
 
@@ -361,9 +361,8 @@ public class TaskFragment extends BaseFragment {
                 });
     }
 
-
     public void getInfo() {//读取列表
-        RxHttp.get("v1/members/" + SPUtils.getInstance().getString("id", "0") + "/latest-order")
+        RxHttp.get("v1/members/" + SPUtils.getInstance().getString("id", "0") + "/latest-order?type=1")
                 .asObject(BaseBean.class)
                 .subscribeOn(Schedulers.io())
                 .as(RxLife.asOnMain(this))
@@ -399,7 +398,7 @@ public class TaskFragment extends BaseFragment {
     }
 
     public void getNoticeList() {//读取列表
-        RxHttp.get("/v1/members/" + SPUtils.getInstance().getString("id", "0") + "/orders?offset=0&limit=40")
+        RxHttp.get("/v1/members/" + SPUtils.getInstance().getString("id", "0") + "/orders?offset=0&limit=40&type=1")
                 .asObject(BaseBean.class)
                 .subscribeOn(Schedulers.io())
                 .as(RxLife.asOnMain(this))
@@ -436,7 +435,7 @@ public class TaskFragment extends BaseFragment {
     }
 
     public void getMessageList() {//读取列表
-        RxHttp.get("/v1/wallets/latest-withdraws")
+        RxHttp.get("/v1/wallets/latest-withdraws?type=1")
                 .asObject(BaseBean.class)
                 .subscribeOn(Schedulers.io())
                 .as(RxLife.asOnMain(this))
@@ -477,7 +476,7 @@ public class TaskFragment extends BaseFragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.linsystem:
-                Goto(MemberSystemActivity.class);
+                Goto(MemberSystemBTCActivity.class);
                 break;
             case R.id.linre:
                 Goto(RechgeBaseActivity.class);

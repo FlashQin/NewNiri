@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -32,6 +31,7 @@ import com.flashqin.niri.bean.MessageWrap;
 import com.flashqin.niri.bean.ResigerBean;
 import com.flashqin.niri.bean.UpDataBean;
 import com.flashqin.niri.fragment.HomeFragment;
+import com.flashqin.niri.fragment.TaskBTCFragment;
 import com.flashqin.niri.fragment.TaskFragment;
 import com.flashqin.niri.fragment.TeamFragment;
 import com.flashqin.niri.fragment.WalletFragment;
@@ -78,9 +78,12 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.rootview)
     RelativeLayout rootview;
+    @BindView(R.id.ll_btc)
+    LinearLayout llBtc;
 
     private HomeFragment homeFragment;
     private TaskFragment taskFragment;
+    private TaskBTCFragment taskBTCFragment;
     private WalletFragment walletFragment;
     private TeamFragment teamFragment;
 
@@ -228,7 +231,7 @@ public class MainActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.ll_home, R.id.ll_category, R.id.ll_service, R.id.ll_proudct})
+    @OnClick({R.id.ll_home, R.id.ll_category, R.id.ll_btc, R.id.ll_service, R.id.ll_proudct})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ll_home:
@@ -242,13 +245,19 @@ public class MainActivity extends BaseActivity {
                 //ImmersionBar.with(this).keyboardEnable(false).statusBarDarkFont(true).init();
                 //  ImmersionBar.with(this).keyboardEnable(true).statusBarDarkFont(true, 0.2f).navigationBarColor(R.color.btn1).init();
                 break;
-            case R.id.ll_service:
+            case R.id.ll_btc:
                 selectedFragment(2);
+                tabSelected(llBtc);
+                //ImmersionBar.with(this).keyboardEnable(false).statusBarDarkFont(true).init();
+                //  ImmersionBar.with(this).keyboardEnable(true).statusBarDarkFont(true, 0.2f).navigationBarColor(R.color.btn1).init();
+                break;
+            case R.id.ll_service:
+                selectedFragment(3);
                 tabSelected(llService);
                 //ImmersionBar.with(this).keyboardEnable(false).statusBarDarkFont(true).init();
                 break;
             case R.id.ll_proudct:
-                selectedFragment(3);
+                selectedFragment(4);
                 tabSelected(llProudct);
                 // ImmersionBar.with(this).keyboardEnable(false).statusBarDarkFont(true).init();
                 break;
@@ -278,6 +287,14 @@ public class MainActivity extends BaseActivity {
                 }
                 break;
             case 2:
+                if (taskBTCFragment == null) {
+                    taskBTCFragment = new TaskBTCFragment();
+                    transaction.add(R.id.content, taskBTCFragment);
+                } else {
+                    transaction.show(taskBTCFragment);
+                }
+                break;
+            case 3:
                 if (walletFragment == null) {
                     walletFragment = new WalletFragment();
                     transaction.add(R.id.content, walletFragment);
@@ -285,7 +302,7 @@ public class MainActivity extends BaseActivity {
                     transaction.show(walletFragment);
                 }
                 break;
-            case 3:
+            case 4:
                 if (teamFragment == null) {
                     teamFragment = new TeamFragment();
                     transaction.add(R.id.content, teamFragment);
@@ -307,6 +324,9 @@ public class MainActivity extends BaseActivity {
         if (taskFragment != null) {
             transaction.hide(taskFragment);
         }
+        if (taskBTCFragment != null) {
+            transaction.hide(taskBTCFragment);
+        }
         if (walletFragment != null) {
             transaction.hide(walletFragment);
         }
@@ -319,6 +339,7 @@ public class MainActivity extends BaseActivity {
     private void tabSelected(LinearLayout linearLayout) {
         llHome.setSelected(false);
         llCategory.setSelected(false);
+        llBtc.setSelected(false);
         llService.setSelected(false);
         llProudct.setSelected(false);
         linearLayout.setSelected(true);
@@ -369,7 +390,7 @@ public class MainActivity extends BaseActivity {
 
                             String code = "" + CommonUtils.getVersionName(MainActivity.this);
                             if (code.equals(homeListBean.getBody().getData().getVersion())) {//无更新
-                               // initNotice();
+                                // initNotice();
                                 // initSpecDialogNoNew();
                             } else {//更新
 

@@ -84,7 +84,7 @@ public class RechgerlBTBActivity extends BaseActivity {
     private BaseQuickAdapter<RechargBean, BaseViewHolder> mOneAdapter;
     String ip = "", tongdao = "", amount = "500", bancode = "100501";
     List<RechargBean> rechargBeanList = new ArrayList<>();
-    String[] strName = {"2000", "5000", "10000", "50000", "100000", "300000"};
+    String[] strName = {"10000", "20000", "40000", "50000", "100000", "300000"};
 
     @Override
     public int getLayoutId() {

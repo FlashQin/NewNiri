@@ -81,7 +81,7 @@ public class RechgeBaseActivity extends BaseActivity {
 
     public void initAdapter() {
 
-        for (int i = 0; i < strName.length; i++) {
+        for (int i = 0; i < strName.length-1; i++) {
             RebaseBean bean = new RebaseBean();
             if (i == 0) {
                 bean.setChecked(true);

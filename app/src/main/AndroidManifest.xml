@@ -53,6 +53,7 @@
         <activity android:name="com.flashqin.niri.activity.RechgerlBTBActivity"></activity>
         <activity android:name="com.flashqin.niri.activity.RechgeUsdtOneActivity"></activity>
         <activity android:name="com.flashqin.niri.activity.ReUsdtTwoActivity"></activity>
+        <activity android:name="com.flashqin.niri.activity.MemberSystemBTCActivity"></activity>
         <activity android:name="com.livechatinc.inappchat.ChatWindowActivity" android:configChanges="orientation|screenSize" />
         <provider
             android:name="androidx.core.content.FileProvider"

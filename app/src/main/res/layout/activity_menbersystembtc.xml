@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:background="#0371F8"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_top_msbtb"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="9.5dp"
+                android:layout_height="17dp"
+                android:background="@drawable/icon_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Membership System - Bitcoin"
+                android:textColor="#ff000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+
+            android:layout_marginTop="12dp"
+            android:text="You can get rewards by using Bitcoin to recharge, and
+the rewards can be withdrawn immediately"
+            android:textColor="#ff000000"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/dsf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="14dp"
+            android:visibility="gone"
+            android:background="@drawable/drawable_huiyuan"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Valid member, 20 order tasks per day"
+                android:textColor="#ff000000"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="5dp"
+                android:lineSpacingExtra="5dp"
+                android:text="1.You can build your own team\n2.Earn 10%/8%/5%/3%/1% of team members' order revenue bonus"
+                android:textColor="#ff000000"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rec1"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/linbar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="140dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_height="match_parent"/>
+    <View
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/rec1"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@
     <string name="app_name">Kaycash</string>
     <string name="meau_home">Home</string>
     <string name="meau_task">Task</string>
+    <string name="meau_taskb">TaskBTC</string>
     <string name="meau_wallet">Wallet</string>
     <string name="meau_team">Team</string>
     <string name="refishtitle">ZXM</string>
