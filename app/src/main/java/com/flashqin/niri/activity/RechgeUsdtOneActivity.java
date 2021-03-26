@@ -1,5 +1,6 @@
 package com.flashqin.niri.activity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,12 +16,14 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.flashqin.niri.R;
 import com.flashqin.niri.adapter.SpacesItemDecoration;
 import com.flashqin.niri.base.BaseActivity;
 import com.flashqin.niri.bean.RechargBean;
+import com.flashqin.niri.utlis.CommonUtils;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
@@ -59,7 +62,7 @@ public class RechgeUsdtOneActivity extends BaseActivity {
     @BindView(R.id.rec)
     RecyclerView rec;
     @BindView(R.id.edtamount)
-    EditText edtamount;
+    TextView edtamount;
     @BindView(R.id.txtrate)
     TextView txtrate;
     @BindView(R.id.btnpay)
@@ -71,7 +74,7 @@ public class RechgeUsdtOneActivity extends BaseActivity {
     private BaseQuickAdapter<RechargBean, BaseViewHolder> mOneAdapter;
     String ip = "", tongdao = "", amount = "500", bancode = "100501";
     List<RechargBean> rechargBeanList = new ArrayList<>();
-    String[] strName = {"2000", "5000", "10000", "50000", "100000", "300000"};
+    String[] strName = {"50000", "100000", "300000", "500000", "1000000"};
 
     @Override
     public int getLayoutId() {
@@ -169,7 +172,23 @@ public class RechgeUsdtOneActivity extends BaseActivity {
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
     }
+    private void shareContent() {
+        String link = txtlink.getText().toString();
 
+        Intent share_intent = new Intent();
+
+        share_intent.setAction(Intent.ACTION_SEND);
+
+        share_intent.setType("text/plain");
+
+        share_intent.putExtra(Intent.EXTRA_SUBJECT, "Share");
+
+        share_intent.putExtra(Intent.EXTRA_TEXT, link);
+
+        share_intent = Intent.createChooser(share_intent, "Share");
+
+        startActivity(share_intent);
+    }
     @OnClick({R.id.imgback, R.id.lincopy, R.id.linshare, R.id.btnpay, R.id.btnnext, R.id.linkefu})
     public void onClick(View view) {
         switch (view.getId()) {
@@ -177,10 +196,15 @@ public class RechgeUsdtOneActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.lincopy:
+                ToastUtils.showShort("Copy Success");
+                CommonUtils.copyToClipboard(RechgeUsdtOneActivity.this, txtlink.getText().toString());
                 break;
             case R.id.linshare:
+
+                shareContent();
                 break;
             case R.id.btnpay:
+                finish();
                 break;
             case R.id.btnnext:
                 Goto(ReUsdtTwoActivity.class);

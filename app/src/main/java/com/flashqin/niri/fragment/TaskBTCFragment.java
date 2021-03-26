@@ -27,6 +27,7 @@ import com.flashqin.niri.activity.MemberSystemBTCActivity;
 import com.flashqin.niri.activity.RechgeBaseActivity;
 import com.flashqin.niri.activity.RechgerlActivity;
 import com.flashqin.niri.activity.WithdrawalActivity;
+import com.flashqin.niri.activity.WithdrawalBaseActivity;
 import com.flashqin.niri.adapter.SpacesItemNoHeader;
 import com.flashqin.niri.base.BaseFragment;
 import com.flashqin.niri.bean.BaseBean;
@@ -482,7 +483,7 @@ public class TaskBTCFragment extends BaseFragment {
                 Goto(RechgeBaseActivity.class);
                 break;
             case R.id.linwd:
-                Goto(WithdrawalActivity.class);
+                Goto(WithdrawalBaseActivity.class);
                 break;
             case R.id.txttabone:
                 txttabone.setBackgroundResource(R.drawable.drawable_wallone);

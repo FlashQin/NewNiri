@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar_two"></include>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginRight="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Withdraw Amount"
+                    android:textColor="#ff333333"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₦"
+                        android:textColor="#000000" />
+
+                    <EditText
+                        android:id="@+id/edtmoney"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+
+                        android:layout_marginLeft="15dp"
+                        android:background="@null"
+                        android:hint="100-50000₦"
+                        android:textColor="#ffd7d7d7"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="#DFDFDF" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:text="Choose a withdrawal wallet"
+                android:textColor="#ff333333"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/relngn"
+                android:layout_width="match_parent"
+                android:background="@drawable/drawable_rel_waaletbac"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/conbacpic"
+                    android:layout_width="match_parent"
+
+                    android:layout_toLeftOf="@id/imgcheck"
+                    android:layout_height="153dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/btb">
+
+                    <ImageView
+                        android:id="@+id/img2"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginLeft="19dp"
+                        android:layout_marginTop="70dp"
+                        android:background="@drawable/icon_rs"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="68dp"
+                        android:text="NGN credit balance"
+                        android:textColor="#ffffffff"
+                        android:textSize="14sp"
+                        app:layout_constraintLeft_toRightOf="@id/img2"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtblance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="15dp"
+                        android:text="0"
+                        android:textColor="#ffffffff"
+                        android:textSize="26sp"
+                        app:layout_constraintLeft_toRightOf="@id/img2"
+                        app:layout_constraintTop_toBottomOf="@id/txt3" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/imgcheck"
+                    android:layout_width="26dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/ion_check"
+                    android:layout_height="26dp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/relbtc"
+                android:layout_width="match_parent"
+                android:background="@drawable/drawable_rel_waaletbac"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/conbtcbacpic"
+                    android:layout_width="match_parent"
+
+                    android:layout_toLeftOf="@id/imgcheckbtc"
+                    android:layout_height="153dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/bg_qb">
+
+                    <ImageView
+                        android:id="@+id/img3"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginLeft="19dp"
+                        android:layout_marginTop="70dp"
+                        android:background="@drawable/icon_rsbtc"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="68dp"
+                        android:text="NGN credit balance"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        app:layout_constraintLeft_toRightOf="@id/img3"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtblancebtc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="15dp"
+                        android:text="0"
+                        android:textColor="#000000"
+                        android:textSize="26sp"
+                        app:layout_constraintLeft_toRightOf="@id/img3"
+                        app:layout_constraintTop_toBottomOf="@id/txt4" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/imgcheckbtc"
+                    android:layout_width="26dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/icon_check_no"
+                    android:layout_height="26dp" />
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="16dp"
+                android:lineSpacingExtra="5dp"
+                android:text="* the withdrawal will be received the next day:T+1;\n* Each level of membership requires different withdrawal fees:
+ Level1-15%, Level2-14%, Level3-13%, Level4-12%, Level5-11%, Level6-10%,"
+                android:textColor="#ff000000"
+                android:textSize="12sp" />
+
+            <net.qiujuer.genius.ui.widget.Button
+                android:id="@+id/brnwd"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/drawable_button_wd"
+                android:gravity="center"
+                android:text="Next "
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+
+                android:textSize="12sp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

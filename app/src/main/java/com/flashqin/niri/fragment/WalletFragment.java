@@ -23,6 +23,7 @@ import com.flashqin.niri.activity.RechgeBaseActivity;
 import com.flashqin.niri.activity.RechgerlActivity;
 import com.flashqin.niri.activity.ShuadanRecordActivity;
 import com.flashqin.niri.activity.WithdrawalActivity;
+import com.flashqin.niri.activity.WithdrawalBaseActivity;
 import com.flashqin.niri.activity.WithdrawalRecordActivity;
 import com.flashqin.niri.activity.YongJinRecordActivity;
 import com.flashqin.niri.adapter.SpacesItemDecoration;
@@ -304,7 +305,8 @@ public class WalletFragment extends BaseFragment {
                         if (baseBean.getHead().getCode() == 1) {
                             // getMenberInfoData();
                             //getNoticeList();
-                            //  wallDataBeanList.clear();
+                            wallDataBeanList.clear();
+                            moneylist.clear();
                             danInfoBeanBTC = JSONObject.parseObject(JSONObject.toJSONString(baseBean), WalletBaseBean.class);
 
                             moneylist.add(danInfoBeanBTC.getBody().getData().getTotalRecharge() + "");
@@ -338,7 +340,7 @@ public class WalletFragment extends BaseFragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.linwd:
-                Goto(WithdrawalActivity.class);
+                Goto(WithdrawalBaseActivity.class);
                 break;
             case R.id.linre:
                 Goto(RechgeBaseActivity.class);
@@ -359,7 +361,6 @@ public class WalletFragment extends BaseFragment {
                 txttabtwo.setBackgroundResource(0);
                 linbacbase.setBackgroundColor(getResources().getColor(R.color.color_wall_btb));
                 linbacpic.setBackgroundResource(R.drawable.bg_wallet);
-                conbacpic.setBackgroundResource(R.drawable.bg_qb_ngn);
                 conbacpic.setBackgroundResource(R.drawable.bg_qb_ngn);
                 img2.setBackgroundResource(R.drawable.icon_rsbtc);
                 txt3.setText("Bitcoin wallet is equivalent to ");
@@ -394,7 +395,6 @@ public class WalletFragment extends BaseFragment {
                 txttabone.setBackgroundResource(0);
                 linbacbase.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
                 linbacpic.setBackgroundResource(R.drawable.bg_wallet2);
-                conbacpic.setBackgroundResource(R.drawable.btb);
                 conbacpic.setBackgroundResource(R.drawable.btb);
 
                 img2.setBackgroundResource(R.drawable.icon_rs);

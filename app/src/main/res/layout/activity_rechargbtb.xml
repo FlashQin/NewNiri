@@ -374,7 +374,7 @@
 
                     <ImageView
                         android:layout_width="31dp"
-                        android:background="@drawable/icon_f3"
+                        android:background="@drawable/icon_f2"
                         android:layout_height="31dp" />
 
                     <TextView

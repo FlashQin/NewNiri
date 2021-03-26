@@ -32,6 +32,7 @@
             android:layout_width="186dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
+            android:background="@drawable/ecode"
             android:layout_height="187dp" />
         <TextView
             android:id="@+id/txtlink"
@@ -44,7 +45,7 @@
             android:paddingRight="10dp"
             android:paddingLeft="10dp"
 
-            android:text="0xdeb1b4a87f51565805527a96d019c06328ed4c95"
+            android:text="0x49cfEB0767F005F1a9F8F7800ba67168CDfAc528"
             android:textColor="#ff333333"
             android:textSize="14sp"
             />
@@ -117,13 +118,13 @@
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
-            <EditText
+            <TextView
                 android:id="@+id/edtamount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
                 android:background="@null"
-                android:hint="enter your phone number"
+                android:text="50000"
                 android:inputType="number"
                 android:textColor="#000000"
                 android:textSize="15sp" />
@@ -157,7 +158,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
                 android:background="@null"
-                android:textColor="#ffd7d7d7"
+                android:text="5%"
+                android:textColor="#000000"
                 android:textSize="15sp" />
 
             <View

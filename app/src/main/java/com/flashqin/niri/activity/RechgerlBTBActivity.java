@@ -206,7 +206,7 @@ public class RechgerlBTBActivity extends BaseActivity {
     }
 
     public void getUserMoney() {//读取列表
-        RxHttp.get("/v1/wallets/" + SPUtils.getInstance().getString("id", "0") + "/balances")
+        RxHttp.get("/v1/wallets/" + SPUtils.getInstance().getString("id", "0") + "/balances?type=1")
                 .asObject(BaseBean.class)
                 .subscribeOn(Schedulers.io())
                 .as(RxLife.asOnMain(this))
@@ -294,66 +294,7 @@ public class RechgerlBTBActivity extends BaseActivity {
                 });
     }
 
-    public void getPayLink() {//获取这个支付链接
-        ShowLoading();
-        Map<String, Object> map = new HashMap<String, Object>();
-        String json = createJsonString(map, "walletId", SPUtils.getInstance().getString("id", "0"));
-        json = createJsonString(map, "amount", edtaccount.getText().toString());
-        json = createJsonString(map, "pemail", edtemail.getText().toString());
-        json = createJsonString(map, "pname", edtname.getText().toString());
-        json = createJsonString(map, "phone", edtphone.getText().toString());
-        json = createJsonString(map, "obcode", bancode);
-        // json = createJsonString(map, "email", edtemail.getText().toString().trim());//910，911通道毕传
-        // if (tongdao.equals("910")) {
-        // json = createJsonString(map, "contactName", edtname.getText().toString().trim());//910通道毕传
-        // }
-        System.out.println("------------" + json);
-        RxHttp.postJson("https://pay.kaymu.vip/v1/orfeyt/preRecharge")
-                .setJsonParams(json)
-                .asObject(BaseBean.class)
-                .subscribeOn(Schedulers.io())
-                .as(RxLife.asOnMain(this))
-                .subscribe(new BaseObserver<BaseBean>() {
-                    @Override
-                    public void onNext(BaseBean baseBean) {
-                        HideLoading();
-                        if (baseBean.getHead().getCode() == 1) {
-                            NewPaySuccess homeListBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), NewPaySuccess.class);
-//                            Map<String, Object> map = new HashMap<String, Object>();
-//                            String json = createJsonString(map, "amount", homeListBean.getBody().getData().getAmount());
-//                            json = createJsonString(map, "appId", homeListBean.getBody().getData().getAppId());
-//                            json = createJsonString(map, "applyDate", homeListBean.getBody().getData().getApplyDate());
-//                            json = createJsonString(map, "channel", homeListBean.getBody().getData().getChannel());
-//                            json = createJsonString(map, "clientIp", homeListBean.getBody().getData().getClientIp());
-//                            json = createJsonString(map, "clientSn", homeListBean.getBody().getData().getClientSn());
-//                            json = createJsonString(map, "notifyUrl", homeListBean.getBody().getData().getNotifyUrl());
-//                            json = createJsonString(map, "outOrderNo", homeListBean.getBody().getData().getOutOrderNo());
-//                            json = createJsonString(map, "sign", homeListBean.getBody().getData().getSign());
-//                            json = createJsonString(map, "userId", homeListBean.getBody().getData().getUserId());
-                            // json = createJsonString(map, "email", homeListBean.getBody().getData().getEmail());
-//                            if (tongdao.equals("910")) {
-//                                //  json = createJsonString(map, "contactName", edtname.getText().toString());
-//                            }
-                            //  json = createJsonString(map, "contactName", edtname.getText().toString());
-//                            json = "https://h5.kaymu.vip/pay.html?channel=" + homeListBean.getBody().getData().getChannel() + "&data=" + json;
-//
-//                            System.out.println("111111111///" + json);
-                            Goto(WebActivity.class, "json", homeListBean.getBody().getData().getOrder_data());
-                            ToastUtils.showShort("Succse");
 
-                        } else
-
-                            ToastUtils.showShort(baseBean.getHead().getMessage());
-                    }
-
-
-                    @Override
-                    public void onError(Throwable e) {
-                        super.onError(e);
-                        HideLoading();
-                    }
-                });
-    }
 
     public void getBTCLink() {//获取这个支付链接
         ShowLoading();
@@ -423,11 +364,13 @@ public class RechgerlBTBActivity extends BaseActivity {
                         return;
                     }
                 }
-                getPayLink();
+                getBTCLink();
                 break;
             case R.id.txtlern:
                 break;
             case R.id.btncreat:
+                Goto(WebActivity.class, "json", "https://paxful.com/register?locale=en&r=xgQPBARgjYp","name","Create new account");
+
                 break;
         }
     }
