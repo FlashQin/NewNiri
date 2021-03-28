@@ -651,7 +651,7 @@ public class TaskFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 dialog_lock.dismiss();
-                Goto(RechgerlActivity.class);
+                Goto(RechgeBaseActivity.class);
             }
         });
     }

@@ -114,7 +114,7 @@ public class MemberSystemBTCActivity extends BaseActivity {
                 txtup.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Goto(RechgerlActivity.class, "money", item.getAmount());
+                        Goto(RechgeBaseActivity.class);
                     }
                 });
 

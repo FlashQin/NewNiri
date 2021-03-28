@@ -133,7 +133,7 @@ public class RechgeUsdtOneActivity extends BaseActivity {
                 txtmoney.setText(item.getName());
                 if (item.isIscheck() == true) {
                     amount = item.getName();
-                    edtamount.setText(item.getName() + "");
+                    edtamount.setText(roundByScale(Double.valueOf(item.getName())*0.0026,0)+ "");
                     txtname.setBackgroundResource(R.drawable.shape_nobian_greenbac);
                     txtname.setSelected(true);
                 } else {
