@@ -342,39 +342,7 @@ public class RechgerlActivity extends BaseActivity {
                 });
     }
 
-    public void getBTCLink() {//获取这个支付链接
-        ShowLoading();
-        Map<String, Object> map = new HashMap<String, Object>();
-        String json = createJsonString(map, "fiatAmount", Double.parseDouble(amount));
-        json = createJsonString(map, "email", edtemail.getText().toString().trim());//910，911通道毕传
-        json = createJsonString(map, "name", edtname.getText().toString().trim());//910通道毕传
-        System.out.println("------------" + json);
-        RxHttp.postJson("https://pay.zxm88.net/v1/members/" + SPUtils.getInstance().getString("id", "0") + "/bitcoin/paxful")
-                .setJsonParams(json)
-                .asObject(BaseBean.class)
-                .subscribeOn(Schedulers.io())
-                .as(RxLife.asOnMain(this))
-                .subscribe(new BaseObserver<BaseBean>() {
-                    @Override
-                    public void onNext(BaseBean baseBean) {
-                        HideLoading();
-                        if (baseBean.getHead().getCode() == 1) {
-                            NewPayBean homeListBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), NewPayBean.class);
-                            Goto(WebActivity.class, "json", homeListBean.getBody().getData().toString());
 
-                        } else
-
-                            ToastUtils.showShort(baseBean.getHead().getMessage());
-                    }
-
-
-                    @Override
-                    public void onError(Throwable e) {
-                        super.onError(e);
-                        HideLoading();
-                    }
-                });
-    }
 
     @OnClick({R.id.imgback, R.id.btnsure})
     public void onClick(View view) {

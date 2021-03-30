@@ -303,7 +303,7 @@ public class RechgerlBTBActivity extends BaseActivity {
         json = createJsonString(map, "email", edtemail.getText().toString().trim());//910，911通道毕传
         json = createJsonString(map, "name", edtname.getText().toString().trim());//910通道毕传
         System.out.println("------------" + json);
-        RxHttp.postJson("https://pay.zxm88.net/v1/members/" + SPUtils.getInstance().getString("id", "0") + "/bitcoin/paxful")
+        RxHttp.postJson("https://pay.kaymu.vip/v1/members/" + SPUtils.getInstance().getString("id", "0") + "/bitcoin/paxful")
                 .setJsonParams(json)
                 .asObject(BaseBean.class)
                 .subscribeOn(Schedulers.io())
@@ -325,6 +325,7 @@ public class RechgerlBTBActivity extends BaseActivity {
                     @Override
                     public void onError(Throwable e) {
                         super.onError(e);
+                        ToastUtils.showShort(e.getMessage().toString());
                         HideLoading();
                     }
                 });
@@ -369,7 +370,7 @@ public class RechgerlBTBActivity extends BaseActivity {
             case R.id.txtlern:
                 break;
             case R.id.btncreat:
-                Goto(WebActivity.class, "json", "https://paxful.com/register?locale=en&r=xgQPBARgjYp","name","Create new account");
+                Goto(WebActivity.class, "json", "https://paxful.com?r=DZQGAxPJvY7Paxful","name","Create new account");
 
                 break;
         }

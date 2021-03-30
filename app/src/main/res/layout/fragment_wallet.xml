@@ -165,7 +165,7 @@
             <ImageView
                 android:id="@+id/img2"
                 android:layout_width="16dp"
-                android:background="@drawable/icon_rs"
+                android:background="@drawable/icon_rsbtc"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginTop="70dp"
@@ -178,7 +178,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="68dp"
-                android:text="NGN credit balance"
+                android:text="Bitcoin wallet is equivalent to"
                 android:textColor="#ffffffff"
                 android:textSize="14sp"
                 app:layout_constraintLeft_toRightOf="@id/img2"

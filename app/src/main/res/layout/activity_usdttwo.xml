@@ -178,7 +178,8 @@
                     android:layout_marginTop="14dp"
                     android:background="@null"
                     android:hint="Blockchain transaction ID"
-                    android:textColor="#ffd7d7d7"
+                    android:textColorHint="#ffd7d7d7"
+                    android:textColor="#000000"
                     android:textSize="15sp" />
 
                 <View

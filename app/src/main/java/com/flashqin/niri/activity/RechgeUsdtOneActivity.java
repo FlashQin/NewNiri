@@ -207,7 +207,7 @@ public class RechgeUsdtOneActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.btnnext:
-                Goto(ReUsdtTwoActivity.class);
+                Goto(ReUsdtTwoActivity.class,"amount",amount);
                 break;
             case R.id.linkefu:
                 break;

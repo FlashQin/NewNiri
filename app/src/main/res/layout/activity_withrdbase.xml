@@ -183,7 +183,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="68dp"
-                        android:text="NGN credit balance"
+                        android:text="Bitcoin wallet is equivalent to"
                         android:textColor="#000000"
                         android:textSize="14sp"
                         app:layout_constraintLeft_toRightOf="@id/img3"
