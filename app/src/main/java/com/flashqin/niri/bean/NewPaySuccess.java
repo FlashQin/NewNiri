@@ -117,6 +117,15 @@ public class NewPaySuccess {
             private String mer_order_no;
             private String status;
 
+            public String getPay_url() {
+                return pay_url;
+            }
+
+            public void setPay_url(String pay_url) {
+                this.pay_url = pay_url;
+            }
+
+            private String pay_url;
             public String getOrder_no() {
                 return order_no;
             }

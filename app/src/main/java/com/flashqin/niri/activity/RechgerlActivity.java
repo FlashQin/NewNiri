@@ -2,6 +2,7 @@ package com.flashqin.niri.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -22,6 +23,7 @@ import com.flashqin.niri.adapter.SpacesItemDecoration;
 import com.flashqin.niri.base.BaseActivity;
 import com.flashqin.niri.bean.BaseBean;
 import com.flashqin.niri.bean.CanShuBean;
+import com.flashqin.niri.bean.IFSListBean;
 import com.flashqin.niri.bean.IPBean;
 import com.flashqin.niri.bean.NewPayBean;
 import com.flashqin.niri.bean.NewPaySuccess;
@@ -79,6 +81,7 @@ public class RechgerlActivity extends BaseActivity {
     String ip = "", tongdao = "", amount = "500", bancode = "100501";
     List<RechargBean> rechargBeanList = new ArrayList<>();
     String[] strName = {"2000", "5000", "10000", "50000", "100000", "300000"};
+    IFSListBean ifsListBean;
 
     @Override
     public int getLayoutId() {
@@ -106,27 +109,59 @@ public class RechgerlActivity extends BaseActivity {
 
         ShowLoading();
         initAdapter();
+       // initSpinner();
+    }
+
+    private void initSpinner() {
+        List<String> strs = new ArrayList<>();
+        RxHttp.get("http://pay.kaymu.vip/v1/WebPayToPay/bankcode/list")
+                .asObject(BaseBean.class)
+                .subscribeOn(Schedulers.io())
+                .as(RxLife.asOnMain(this))
+                .subscribe(new BaseObserver<BaseBean>() {
+                    @Override
+                    public void onNext(BaseBean baseBean) {
+
+                        if (baseBean.getHead().getCode() == 1) {
+                            ifsListBean = JSONObject.parseObject(JSONObject.toJSONString(baseBean), IFSListBean.class);
+
+                            for (int i = 0; i < ifsListBean.getBody().getData().size(); i++) {
+                                strs.add(ifsListBean.getBody().getData().get(i).getName());
+                            }
+                            spinnerKinds.attachDataSource(strs);
+                            spinnerKinds.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
+                                @Override
+                                public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
+                                    // This example uses String, but your type can be any
+                                    // bankString = parent.getItemAtPosition(position).toString();
+
+                                    for (int i = 0; i < ifsListBean.getBody().getData().size(); i++) {
+                                        if (position==i){
+                                            bancode =  ifsListBean.getBody().getData().get(position).getCode();
+                                        }
+                                    }
+
+
+
+                                }
+                            });
+
+                        } else
+
+                            ToastUtils.showShort(baseBean.getHead().getMessage());
+                    }
+
+
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+                        HideLoading();
+                    }
+                });
+
     }
 
     public void initAdapter() {
-        List<String> strs = new ArrayList<>();
-        strs.add("Bank");
-        strs.add("Opay");
-        spinnerKinds.attachDataSource(strs);
-        spinnerKinds.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
-            @Override
-            public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
-                // This example uses String, but your type can be any
-                // bankString = parent.getItemAtPosition(position).toString();
-
-                if (position==0){
-                    bancode="100501";
-                }else {
-                    bancode="100502";
-                }
-
-            }
-        });
 
         for (int i = 0; i < strName.length; i++) {
             RechargBean bean = new RechargBean();
@@ -286,16 +321,16 @@ public class RechgerlActivity extends BaseActivity {
         Map<String, Object> map = new HashMap<String, Object>();
         String json = createJsonString(map, "walletId", SPUtils.getInstance().getString("id", "0"));
         json = createJsonString(map, "amount", edtaccount.getText().toString());
-        json = createJsonString(map, "pemail", edtemail.getText().toString());
-        json = createJsonString(map, "pname", edtname.getText().toString());
-        json = createJsonString(map, "phone", edtphone.getText().toString());
-        json = createJsonString(map, "obcode", bancode);
+        json = createJsonString(map, "email", edtemail.getText().toString());
+       // json = createJsonString(map, "pname", edtname.getText().toString());
+       // json = createJsonString(map, "phone", edtphone.getText().toString());
+        //json = createJsonString(map, "obcode", bancode);
         // json = createJsonString(map, "email", edtemail.getText().toString().trim());//910，911通道毕传
         // if (tongdao.equals("910")) {
         // json = createJsonString(map, "contactName", edtname.getText().toString().trim());//910通道毕传
         // }
         System.out.println("------------" + json);
-        RxHttp.postJson("https://pay.kaymu.vip/v1/orfeyt/preRecharge")
+        RxHttp.postJson("https://pay.kaymu.vip/v1/WebPayToPay/preRecharge")
                 .setJsonParams(json)
                 .asObject(BaseBean.class)
                 .subscribeOn(Schedulers.io())
@@ -325,8 +360,7 @@ public class RechgerlActivity extends BaseActivity {
 //                            json = "https://h5.kaymu.vip/pay.html?channel=" + homeListBean.getBody().getData().getChannel() + "&data=" + json;
 //
 //                            System.out.println("111111111///" + json);
-                            Goto(WebActivity.class, "json", homeListBean.getBody().getData().getOrder_data());
-                            ToastUtils.showShort("Succse");
+                            Goto(WebActivity.class, "json", homeListBean.getBody().getData().getPay_url());
 
                         } else
 
@@ -343,7 +377,6 @@ public class RechgerlActivity extends BaseActivity {
     }
 
 
-
     @OnClick({R.id.imgback, R.id.btnsure})
     public void onClick(View view) {
         switch (view.getId()) {
@@ -351,20 +384,20 @@ public class RechgerlActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.btnsure:
-                if (edtname.getText().toString().length() == 0) {
-
-                    ToastUtils.showShort("please input your name");
-                    return;
-                }
+//                if (edtname.getText().toString().length() == 0) {
+//
+//                    ToastUtils.showShort("please input your name");
+//                    return;
+//                }
                 if (edtemail.getText().toString().length() == 0) {
                     ToastUtils.showShort("please input your email");
                     return;
                 }
 
-                if (edtphone.getText().toString().length() == 0) {
-                    ToastUtils.showShort("please input right phone number");
-                    return;
-                }
+//                if (edtphone.getText().toString().length() == 0) {
+//                    ToastUtils.showShort("please input right phone number");
+//                    return;
+//                }
                 if (edtaccount.getText().toString().trim().length() != 0) {
                     double money = Double.parseDouble(edtaccount.getText().toString().trim());
                     if (money < 2000) {

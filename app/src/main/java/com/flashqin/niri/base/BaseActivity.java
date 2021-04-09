@@ -362,7 +362,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         loadingDialog.message("Loading...");
         loadingDialog.showInActivity(this);
     }
-
+    public void ShowLoading(String txt) {
+        if (loadingDialog == null)
+            loadingDialog = new LoadingDialog().middle();
+        loadingDialog.message(txt);
+        loadingDialog.showInActivity(this);
+    }
     public void HideLoading() {
         if (loadingDialog == null) return;
         loadingDialog.dismiss();

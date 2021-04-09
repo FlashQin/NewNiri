@@ -121,7 +121,8 @@ public class WithdrawalActivity extends BaseActivity {
     String ip = "", tongdao = "913", amount = "500", typeString = "CPF", bankString = "Itaú", leixingString = "Corrente";
     IFSListBean ifsListBean;
     BasePopupView popupView;
-    String urlcode = "https://pay.kaymu.vip/v1/orfeyt/bankcode/list", urlpost = "https://pay.kaymu.vip/v1/orfeyt/applyWithdraw";
+    int index=0;
+    String urlcode = "https://pay.kaymu.vip/v1/WebPayToPay/bankcode/list", urlpost = "https://pay.kaymu.vip/v1/WebPayToPay/applyWithdraw";
 
     @Override
     public int getLayoutId() {
@@ -243,6 +244,7 @@ public class WithdrawalActivity extends BaseActivity {
                                     // This example uses String, but your type can be any
                                     // bankString = parent.getItemAtPosition(position).toString();
 
+                                    index=position;
                                     for (int i = 0; i < ifsListBean.getBody().getData().size(); i++) {
                                         if (i == position) {
                                             bankString = ifsListBean.getBody().getData().get(i).getCode();
@@ -357,7 +359,7 @@ public class WithdrawalActivity extends BaseActivity {
                             if (tongdao.equals("100")) {//只显示913
 
                                 urlcode = "https://pay.kaymu.vip/v1/orfeyt/bankcode/list";
-                                urlpost = "https://pay.kaymu.vip/v1/orfeyt/applyWithdraw";
+                                urlpost = "https://pay.kaymu.vip/v1/WebPayToPay/applyWithdraw";
 
                             }
                             if (tongdao.equals("500")) {//只显示914
@@ -430,8 +432,8 @@ public class WithdrawalActivity extends BaseActivity {
 
         json = createJsonString(map, "acc_no", edtemail.getText().toString());
         json = createJsonString(map, "acc_name", edtname.getText().toString().trim());
-        json = createJsonString(map, "bank_code", bankString);
-
+        json = createJsonString(map, "bank_code", ifsListBean.getBody().getData().get(index).getCode());
+        json = createJsonString(map, "bank_name", ifsListBean.getBody().getData().get(index).getName());
         System.out.println("json----" + json);
         RxHttp.postJson(urlpost)
                 .setJsonParams(json)

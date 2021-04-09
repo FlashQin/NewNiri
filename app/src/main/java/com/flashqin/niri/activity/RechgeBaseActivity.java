@@ -176,7 +176,8 @@ public class RechgeBaseActivity extends BaseActivity {
                         Goto(RechgerlActivity.class);
                         break;
                     case 2:
-                        Goto(RechgerlBTBActivity.class);
+                      //  Goto(RechgerlBTBActivity.class);
+
                         break;
                     case 3:
                         Goto(RechgeUsdtOneActivity.class);
